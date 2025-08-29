@@ -118,6 +118,43 @@ html.with-fancybox body.hide-scrollbar {
 		padding: 0;
 		min-width: 0;
 	}
+	li {
+		margin-bottom: 5px;
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+	.btn-menu-toggle-width {
+		display: none;
+		position: relative;
+		width: 16px;height: 16px;
+		border: 1px solid var(--clr-border-light);
+		border-radius: 0 10px 10px 0;;
+		border-left: none;
+		background: #fff;
+		z-index: 20;
+		position: absolute;
+		top: 25px;right: -17px;
+		&:before {
+			content: "";
+			display: block;
+			width: 24px;
+			height: 24px;
+			position: absolute;
+			background: url(../img/icons/arrow-toggle.svg) center no-repeat;
+			background-size: 100% auto;
+			top: 50%;left: 50%;
+			margin: -12px 0 0 -12px;
+			transition: all ease 0.2s;
+		}
+	}
+}
+.menu-hide {
+	.btn-menu-toggle-width {
+		&:before {
+			rotate: 180deg;
+		}
+	}	
 }
 .header {
 	z-index: 99;
@@ -287,6 +324,14 @@ html.with-fancybox body.hide-scrollbar {
 @media (min-width: 1600px) {
 	.wrap {
 		padding-left: 280px;
+		transition: padding-left ease 0.2s;
+	}
+	.nav {
+		transition: all ease 0.2s;
+		overflow: visible;
+		.btn-menu-toggle-width {
+			display: block;
+		}
 	}
 	.header {
 		.logo-inner-wrap {
@@ -294,6 +339,24 @@ html.with-fancybox body.hide-scrollbar {
 		}
 		.btn-popup-menu {
 			display: none;
+		}
+	}
+	.menu-hide {
+		.wrap {
+			padding-left: 90px;
+		}
+		.nav {
+			width: 90px;
+			min-width: 90px;
+			.button-menu {
+				.button-title {
+					display: none;
+					padding: 0;
+				}
+				.button-ico {
+					margin: 0 auto;
+				}
+			}
 		}
 	}
 }

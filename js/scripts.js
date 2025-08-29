@@ -13,6 +13,13 @@ document.addEventListener("DOMContentLoaded", function() {
 		e.preventDefault()
 	})
 
+	//menu toggle width
+	const menuToggleButtonWidth = document.querySelector('.js-btn-menu-toggle-width');
+	menuToggleButtonWidth.addEventListener('click', function(e) {
+		document.body.classList.toggle('menu-hide');
+		e.preventDefault()
+	})
+
 
 	//tr action toggle
 	let trActions = document.querySelectorAll('.js-tr-action')
