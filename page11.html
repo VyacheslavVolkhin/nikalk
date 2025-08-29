@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <title>Главная</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/fancybox.css">
+    <link rel="stylesheet" href="./css/swiper-bundle.min.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="./js/swiper-bundle.min.js" defer></script>
+    <script src="./js/fancybox.umd.js" defer></script>
+    <script src="./js/counter.js" defer></script>
+    <script src="./js/scripts.js" defer></script>
+    <script src="./js/scripts-sliders.js" defer></script>
+</head>
+
+<body>
+    <!-- wrap -->
+    <div class="wrap">
+
+
+        <!-- header -->
+        <header class="header">
+            <div class="inner-wrap">
+                <div class="logo-inner-wrap">
+                    <a href="" class="logo">
+                        <div class="logo-image">
+                            <img src="./img/main/logo.svg" alt="">
+                        </div>
+                        <div class="logo-title">АЗС Управление</div>
+                    </a>
+                </div>
+                <div class="actions-inner-wrap">
+                    <div class="action-wrap action-button">
+                        <a href="" class="btn button-link-dark" data-count="3">
+                            <div class="button-ico">
+                                <img src="./img/icons/notify.svg" alt="">
+                            </div>
+                        </a>
+                    </div>
+                    <div class="action-wrap action-user">
+                        <a href="" class="btn button-link-dark">
+                            <div class="elm-photo photo-cover">
+                                <!-- <img src="./img/user.jpg" alt=""> -->
+                            </div>
+                            <div class="button-title">Иванов Иван Иванович </div>
+                            <span class="button-info">Админ</span>
+                        </a>
+                    </div>
+                    <div class="action-wrap action-exit">
+                        <a href="" class="btn">
+                            <div class="button-ico">
+                                <img src="./img/icons/exit.svg" alt="">
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <a href="" class="btn btn-action-ico ico-menu btn-popup-menu js-btn-popup-menu"></a>
+            </div>
+        </header>
+        <!-- /header -->
+
+        <!--nav-->
+        <nav class="nav">
+            <ul class="menu">
+                <li>
+                    <a href="" class="btn button-menu active">
+                        <div class="button-ico">
+                            <img src="./img/icons/menu01.svg" alt="">
+                        </div>
+                        <div class="button-title">Главная</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="" class="btn button-menu">
+                        <div class="button-ico">
+                            <img src="./img/icons/menu03.svg" alt="">
+                        </div>
+                        <div class="button-title">Склад и товары</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="" class="btn button-menu">
+                        <div class="button-ico">
+                            <img src="./img/icons/menu04.svg" alt="">
+                        </div>
+                        <div class="button-title">Пользователи</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="" class="btn button-menu">
+                        <div class="button-ico">
+                            <img src="./img/icons/menu06.svg" alt="">
+                        </div>
+                        <div class="button-title">Антикоррупция</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="" class="btn button-menu">
+                        <div class="button-ico">
+                            <img src="./img/icons/menu07.svg" alt="">
+                        </div>
+                        <div class="button-title">Справочники</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="" class="btn button-menu">
+                        <div class="button-ico">
+                            <img src="./img/icons/menu08.svg" alt="">
+                        </div>
+                        <div class="button-title">Договора</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="" class="btn button-menu">
+                        <div class="button-ico">
+                            <img src="./img/icons/menu09.svg" alt="">
+                        </div>
+                        <div class="button-title">Меню выгрузки</div>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <!--/nav-->
+
+        <!-- page -->
+        <div class="page-full">
+
+            <!--title-panel-box-->
+            <div class="title-panel-box">
+                <div class="title-wrap">
+                    <h1 class="h1-title section-title">Конструктор выгрузки</h1>
+                </div>
+                <div class="actions-wrap">
+                    <div class="action-wrap">
+                        <a href="" class="btn">
+                            <div class="button-ico">
+                                <img src="./img/icons/plus.svg" alt="">
+                            </div>
+                            <div class="button-title">Создать выгрузку</div>
+                        </a>
+                    </div>
+                    <div class="action-wrap">
+                        <a href="" class="btn">
+                            <div class="button-ico">
+                                <img src="./img/icons/plus.svg" alt="">
+                            </div>
+                            <div class="button-title">Добавить справочник</div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!--/title-panel-box-->
+
+            <!--form-panel-box-->
+            <div class="form-panel-box elm-panel">
+                <div class="frm-section-wrap">
+                    <div class="frm-section-title">Новая выгрузка</div>
+                    <div class="frm-section-content">
+                        <div class="frm-row">
+                            <div class="frm-field field-third">
+                                <div class="field-title">Тип выгрузки</div>
+                                <div class="field-content">
+                                    <select class="form-input" required>
+                                        <option selected disabled hidden value="">Объекты</option><!--placeholder-->
+                                        <option>Пункт списка</option>
+                                        <option>Пункт списка</option>
+                                        <option>Пункт списка</option>
+                                        <option>Пункт списка</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="frm-field field-third">
+                                <div class="field-title">Заказчик</div>
+                                <div class="field-content">
+                                    <select class="form-input" required>
+                                        <option selected disabled hidden value="">Все</option><!--placeholder-->
+                                        <option>Пункт списка</option>
+                                        <option>Пункт списка</option>
+                                        <option>Пункт списка</option>
+                                        <option>Пункт списка</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="frm-field field-third">
+                                <div class="field-title">Зона</div>
+                                <div class="field-content">
+                                    <select class="form-input" required>
+                                        <option selected disabled hidden value="">Все</option><!--placeholder-->
+                                        <option>Пункт списка</option>
+                                        <option>Пункт списка</option>
+                                        <option>Пункт списка</option>
+                                        <option>Пункт списка</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="frm-section-wrap">
+                    <div class="frm-section-title">Список полей</div>
+                    <div class="frm-section-content">
+                        <div class="frm-row">
+                            <div class="frm-field field-half">
+                                <div class="field-title">Добавьте поле</div>
+                                <div class="field-content">
+                                    <select class="form-input" required>
+                                        <option selected disabled hidden value="">Объекты</option><!--placeholder-->
+                                        <option>Пункт списка</option>
+                                        <option>Пункт списка</option>
+                                        <option>Пункт списка</option>
+                                        <option>Пункт списка</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="frm-field field-half">
+                                <div class="field-content">
+                                    <a href="" class="btn button-light button-border">
+                                        <div class="button-ico">
+                                            <img src="./img/icons/plus.svg" alt="">
+                                        </div>
+                                        <div class="button-title">Добавить поле</div>
+                                    </a>
+                                    <a href="" class="btn button-light button-border">
+                                        <div class="button-ico">
+                                            <img src="./img/icons/plus.svg" alt="">
+                                        </div>
+                                        <div class="button-title">Выбрать все поля</div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="frm-row-submit">
+                    <div class="frm-field">
+                        <button type="submit" class="btn">
+                            <div class="button-title">Выгрузить</div>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!--/form-panel-box-->
+
+            <!--panel-box-->
+            <div class="panel-box elm-panel">
+                <!-- title -->
+                <div class="panel-title-wrap">
+                    <div class="title-wrap">
+                        <div class="panel-title h2-title">История выгрузок </div>
+                    </div>
+                    <!-- form -->
+                    <div class="form-inner-wrap">
+                        <div class="frm-row">
+                            <div class="frm-field">
+                                <div class="field-content">
+                                    <select class="form-input" required="">
+                                        <option selected="" disabled="" hidden="" value="">По Все типы</option><!--placeholder-->
+                                        <option>Пункт списка</option>
+                                        <option>Пункт списка</option>
+                                        <option>Пункт списка</option>
+                                        <option>Пункт списка</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="frm-field">
+                                <div class="field-content">
+                                    <a href="" class="btn btn-popup js-btn-popup-toggle">
+                                        <div class="button-ico">
+                                            <img src="./img/icons/filter.svg" alt="">
+                                        </div>
+                                        <div class="button-title">Фильтровать</div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /form -->
+                </div>
+                <!-- /title -->
+                <!-- panel outer -->
+                <div class="panel-outer-wrap">
+                    <div class="panel-content-wrap">
+
+                        <div class="items-wrap">
+                            <!--item wrap-->
+                            <div class="item-wrap wrap-df2">
+                                <div class="item-tile-unloading">
+                                    <div class="tile-ico">
+                                        <img src="./img/icons/succefull-check.svg" alt="">
+                                    </div>
+                                    <div class="tile-title-wrap">
+                                        <div class="tile-title">Выгрузка по партнеру "ООО Автосервис"</div>
+                                        <div class="tile-info">Период: 01.01.2025 - 28.01.2025</div>
+                                    </div>
+                                    <div class="tile-info-wrap">
+                                        <div class="tile-info">28.01.2025 14:30</div>
+                                        <div class="tila-action">
+                                            <a href="" class="btn button-light button-border">
+                                                <div class="button-ico">
+                                                    <img src="./img/icons/export.svg" alt="">
+                                                </div>
+                                                <div class="button-title">Скачать</div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--/item wrap-->
+                            <!--item wrap-->
+                            <div class="item-wrap wrap-df2">
+                                <div class="item-tile-unloading">
+                                    <div class="tile-ico">
+                                        <img src="./img/icons/succefull-check.svg" alt="">
+                                    </div>
+                                    <div class="tile-title-wrap">
+                                        <div class="tile-title">Выгрузка по партнеру "ООО Автосервис"</div>
+                                        <div class="tile-info">Период: 01.01.2025 - 28.01.2025</div>
+                                    </div>
+                                    <div class="tile-info-wrap">
+                                        <div class="tile-info">28.01.2025 14:30</div>
+                                        <div class="tila-action">
+                                            <a href="" class="btn button-light button-border">
+                                                <div class="button-ico">
+                                                    <img src="./img/icons/export.svg" alt="">
+                                                </div>
+                                                <div class="button-title">Скачать</div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--/item wrap-->
+                            <!--item wrap-->
+                            <div class="item-wrap wrap-df2">
+                                <div class="item-tile-unloading">
+                                    <div class="tile-ico">
+                                        <img src="./img/icons/time.svg" alt="">
+                                    </div>
+                                    <div class="tile-title-wrap">
+                                        <div class="tile-title">Выгрузка по механику "Иванов И.И."</div>
+                                        <div class="tile-info">Период: 01.01.2025 - 28.01.2025</div>
+                                    </div>
+                                    <div class="tile-info-wrap">
+                                        <div class="tile-info">В процессе...</div>
+                                        <div class="tila-action">
+                                            <a href="" class="btn button-light button-border button-disabled">
+                                                <div class="button-ico ico-animate">
+                                                    <img src="./img/icons/wait.svg" alt="">
+                                                </div>
+                                                <div class="button-title">Ожидание</div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--/item wrap-->
+                            <!--item wrap-->
+                            <div class="item-wrap wrap-df2">
+                                <div class="item-tile-unloading">
+                                    <div class="tile-ico">
+                                        <img src="./img/icons/time.svg" alt="">
+                                    </div>
+                                    <div class="tile-title-wrap">
+                                        <div class="tile-title">Выгрузка по механику "Иванов И.И."</div>
+                                        <div class="tile-info">Период: 01.01.2025 - 28.01.2025</div>
+                                    </div>
+                                    <div class="tile-info-wrap">
+                                        <div class="tile-info">В процессе...</div>
+                                        <div class="tila-action">
+                                            <a href="" class="btn button-light button-border button-disabled">
+                                                <div class="button-ico ico-animate">
+                                                    <img src="./img/icons/wait.svg" alt="">
+                                                </div>
+                                                <div class="button-title">Ожидание</div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--/item wrap-->
+                            <!--item wrap-->
+                            <div class="item-wrap wrap-df2">
+                                <div class="item-tile-unloading">
+                                    <div class="tile-ico">
+                                        <img src="./img/icons/succefull-check.svg" alt="">
+                                    </div>
+                                    <div class="tile-title-wrap">
+                                        <div class="tile-title">Выгрузка по партнеру "ООО Автосервис"</div>
+                                        <div class="tile-info">Период: 01.01.2025 - 28.01.2025</div>
+                                    </div>
+                                    <div class="tile-info-wrap">
+                                        <div class="tile-info">28.01.2025 14:30</div>
+                                        <div class="tila-action">
+                                            <a href="" class="btn button-light button-border">
+                                                <div class="button-ico">
+                                                    <img src="./img/icons/export.svg" alt="">
+                                                </div>
+                                                <div class="button-title">Скачать</div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--/item wrap-->
+                            <!--item wrap-->
+                            <div class="item-wrap wrap-df2">
+                                <div class="item-tile-unloading">
+                                    <div class="tile-ico">
+                                        <img src="./img/icons/succefull-check.svg" alt="">
+                                    </div>
+                                    <div class="tile-title-wrap">
+                                        <div class="tile-title">Выгрузка по партнеру "ООО Автосервис"</div>
+                                        <div class="tile-info">Период: 01.01.2025 - 28.01.2025</div>
+                                    </div>
+                                    <div class="tile-info-wrap">
+                                        <div class="tile-info">28.01.2025 14:30</div>
+                                        <div class="tila-action">
+                                            <a href="" class="btn button-light button-border">
+                                                <div class="button-ico">
+                                                    <img src="./img/icons/export.svg" alt="">
+                                                </div>
+                                                <div class="button-title">Скачать</div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--/item wrap-->
+                        </div>
+
+                    </div>
+                </div>
+                <!-- /panel outer -->
+            </div>
+            <!--/panel-box-->
+
+
+        </div>
+        <!-- /page -->
+
+
+
+    </div>
+    <!-- /wrap -->
+
+
+
+</body>
+
+</html>

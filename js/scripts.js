@@ -188,5 +188,67 @@ document.addEventListener("DOMContentLoaded", function() {
 		});
 	});
 
+	//field-select checkboxes
+	const buttonSelects = document.querySelectorAll('.js-field-button-select');
+	
+	function updateButtonTitle(button) {
+		const checkboxes = button.closest('.js-field-select').querySelectorAll('.frm-select input[type="radio"]');
+		const selectedTexts = Array.from(checkboxes)
+			.filter(checkbox => checkbox.checked)
+			.map(checkbox => checkbox.nextElementSibling.textContent);
+		
+		const buttonTitle = button.querySelector('.button-title');
+		buttonTitle.textContent = selectedTexts.length > 0 ? selectedTexts.join(', ') : buttonTitle.dataset.placeholder;
+	
+		if (selectedTexts.length > 0) {
+			button.setAttribute('data-count', selectedTexts.length);
+		} else {
+			button.removeAttribute('data-count');
+		}
+	}
+	
+	buttonSelects.forEach(button => {
+		updateButtonTitle(button);
+		button.addEventListener('click', function (e) {
+			e.preventDefault();
+			buttonSelects.forEach(otherButton => {
+				if (otherButton !== button) {
+					otherButton.classList.remove('active');
+				}
+			});
+			if (this.classList.contains('active')) {
+				button.classList.remove('active');
+			} else {
+				button.classList.add('active');
+			}
+			updateButtonTitle(this);
+		});
+		
+		const checkboxes = button.closest('.js-field-select').querySelectorAll('.frm-select input[type="radio"]');
+		checkboxes.forEach(checkbox => {
+			checkbox.addEventListener('change', function () {
+				updateButtonTitle(button);
+			});
+		});
+	});
+	
+	document.addEventListener('click', function (e) {
+		if (!e.target.closest('.js-field-select')) {
+			buttonSelects.forEach(button => {
+				if (button.classList.contains('active')) {
+					button.classList.remove('active');
+				}
+			});
+		}
+	});
+	
+	document.addEventListener('click', function (e) {
+		if (!e.target.closest('.js-field-select')) {
+			buttonSelects.forEach(button => {
+				button.classList.remove('active');
+			});
+		}
+	});
+
 
 })

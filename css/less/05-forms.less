@@ -1,6 +1,136 @@
 /* ----------------------------------- *\
 			forms elements styles
 \* ----------------------------------- */
+.frm-field-select {
+	display: block;
+	position: relative;
+	.btn-popup {
+		width: 100%;
+		flex-wrap: wrap;
+		height: auto;
+		font-size: 14px;
+		line-height: (20/14);
+		color: var(--clr-base);
+		padding: 8px 40px 8px 10px;
+		min-height: 46px;
+		height: 100%;
+		flex-direction: column;
+		justify-content: center;
+		gap: 3px;
+		text-align: left;
+		.button-title, .button-head {
+			display: block;
+			position: relative;
+			max-width: 100%;
+			flex-shrink: 0;
+			width: 100%;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+		}
+		.button-head {
+			font-size: 16px;
+			line-height: 1.45;
+			color: var(--clr-light);
+		}
+		&.button-arrow {
+			&:before {
+				rotate: 90deg;
+				background-size: 28px auto;
+			}
+			&:not(:hover) {
+				&:before {
+					filter: var(--filterAttToBase);
+				}
+			}
+		}
+		&.active {
+			&.button-arrow {
+				&:before {
+					rotate: -90deg;
+				}
+			}
+		}
+	}
+	.active {
+		&~.select-content-block {
+			display: block;
+		}
+	}
+	.select-content-block {
+		display: none;
+		animation: fadein ease 0.2s;
+		position: absolute;
+		top: 100%;left: 0;right: 0;
+		border-radius: var(--mainRadius);
+		padding: 15px;
+		border: 1px solid var(--clr-border-light);
+		background: #fff;
+		z-index: 20;
+	}
+	.menu {
+		max-height: 200px;
+		overflow-y: auto;
+		padding-right: 10px;
+		&::-webkit-scrollbar {
+			height: 4px;
+			width: 4px;
+			background-color: var(--clr-bg-light);
+		}
+		&::-webkit-scrollbar-thumb {
+			background-color: var(--clr-att);
+		}
+		&::-webkit-scrollbar-thumb:hover {
+			background-color: var(--clr-att);
+		}
+		&::-webkit-scrollbar-button:vertical:start:decrement {
+			background-color: transparent;
+			width: 0;
+			height: 0;
+		}
+		&::-webkit-scrollbar-button:vertical:end:increment {
+			background-color: transparent;
+			width: 0;
+			height: 0;
+		}
+		&::-webkit-scrollbar-button:horizontal:start:decrement {
+			background-color: transparent;
+			width: 0;
+			height: 0;
+		}
+		&::-webkit-scrollbar-button:horizontal:end:increment {
+			background-color: transparent;
+			width: 0;
+			height: 0;
+		}
+	}
+	[data-count]:after {
+		display: none;
+	}
+	.frm-select {
+		font-size: 16px;
+		line-height: 1.4;
+		label {
+			padding: 10px 15px;
+			border-radius: var(--mainRadius);
+			transition: all ease 0.2s;
+			&:hover {
+				background-color: var(--clr-bg-light);
+			}
+			&:before, &:after {
+				display: none;
+			}
+		}
+		input {
+			&:checked {
+				&~label {
+					background-color: var(--clr-att);
+					color: #fff;
+				}
+			}
+		}
+	}
+}
 .frm-field-actions-panel {
 	display: flex;
 	gap: 8px;
@@ -93,6 +223,9 @@
 	display: block;
 	overflow: hidden;
     line-height: 1;
+	&.inp-button {
+
+	}
 	input {
 		display: block;
 		position: absolute;
@@ -126,6 +259,15 @@
 
 
 .frm-select {
+	&.inp-button {
+		width: 40px;height: 40px;
+		label {
+			width: 40px;height: 40px;
+			&:before, &:after {
+				top: 50%;left: 50%;
+			}
+		}
+	}
 	input {
 		&[type="radio"] {
 			&~label {
@@ -150,12 +292,17 @@
 	}
 	label {
 		&:before, &:after {
-			
+			width: 20px;height: 20px;
+			border-radius: 1px;
+			border: 1px solid var(--clr-base);
+			top: 10px;
+			left: 10px;
+			margin: -10px 0 0 -10px;
 		}
 		&:after {
 			border-radius: 0;
 			border: none;
-			background: url(../img/icons/chk.svg) center / 24px auto no-repeat;
+			background: url(../img/icons/check.svg) center / 20px auto no-repeat;
 			opacity: 0;
 		}
 	}
@@ -164,6 +311,42 @@
 		&:hover {
 			color: var(--clr-att);
 		}
+	}
+}
+.frm-select-button {
+	position: relative;
+	line-height: 1;
+	flex-shrink: 0;
+	input {
+		position: absolute;
+		top: 0;left: 0;
+		opacity: 0;
+		z-index: -999;
+		&:checked {
+			&~.btn {
+				background-color: var(--clr-base);
+				border-color: var(--clr-base);
+				color: #fff;
+			}
+			&~.btn.button-border {
+				background-color: var(--clr-base);
+				border-color: var(--clr-base);
+				color: #fff;
+			}
+			&~.btn.button-light.button-border {
+				border-color: var(--clr-att);
+				background-color: var(--clr-bg-light);
+				color: var(--clr-att);
+			}
+		}
+	}
+	.btn {
+		width: 100%;
+		padding: 0 19px;
+		font-size: 16px;
+	}
+	.button-light {
+		color: var(--clr-base);
 	}
 }
 .frm-field-counter {
@@ -221,9 +404,31 @@
 	
 }
 @media (min-width: 744px) {
+	.frm-field-select {
+		.btn-popup {
+			flex-direction: row;
+			padding-left: 14px;
+			.button-title, .button-head {
+				width: auto;
+			}
+			.button-head {
+				margin-right: 3px;
+			}
+			.button-title {
+				flex: 1;
+			}
+		}
+	}
 	.frm-field-actions-panel {
 		.field-counter-wrap {
 			width: 90px;
+		}
+	}
+}
+@media (min-width: 1024px) {
+	.frm-field-select {
+		.btn-popup {
+			
 		}
 	}
 }
