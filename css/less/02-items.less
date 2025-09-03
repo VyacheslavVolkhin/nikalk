@@ -786,6 +786,33 @@
 		}
 	}
 	.item-tile-panel-info {
+		&.tile-frow {
+			min-height: 60px;
+			display: flex;
+			align-items: center;
+			padding: 14px 60px 14px 24px;
+			flex-wrap: wrap;
+			justify-content: flex-start;
+			flex-direction: row;
+			.tile-title-wrap {
+				width: auto;
+				padding: 0 10px 0 0;
+				max-width: 100%;
+				flex: 0 0 auto;
+				margin: 0;
+			}
+			.tile-info-wrap {
+				flex: 0 0 auto;
+				width: auto;
+				padding: 0;
+				margin: 0;
+			}
+			.tile-ico {
+				position: absolute;
+				top: 50%;right: 24px;
+				margin: -14px 0 0 -14px;
+			}
+		}
 		.tile-title-wrap {
 			padding-right: 40px;
 		}

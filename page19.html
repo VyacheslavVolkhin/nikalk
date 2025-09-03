@@ -138,6 +138,18 @@
                 <div class="title-wrap">
                     <h1 class="h1-title section-title">Склад и товары</h1>
                 </div>
+                <!-- actions -->
+                <div class="actions-wrap">
+                    <div class="action-wrap">
+                        <a href="" class="btn button-light button-border">
+                            <div class="button-ico">
+                                <img src="./img/icons/cart.svg" alt="">
+                            </div>
+                            <div class="button-title">В корзине Пусто</div>
+                        </a>
+                    </div>
+                </div>
+                <!-- /actions -->
                 <!-- tabs -->
                 <div class="tabs-wrap">
                     <div class="tabs-slider-box">
@@ -146,22 +158,22 @@
                                 <div class="slider swiper-wrapper">
                                     <div class="sl-wrap swiper-slide">
                                         <a href="" class="btn button-tab">
-                                            <div class="button-title">Категории товаров</div>
+                                            <div class="button-title">Склад</div>
                                         </a>
                                     </div>
                                     <div class="sl-wrap swiper-slide">
                                         <a href="" class="btn button-tab active">
-                                            <div class="button-title">Товары</div>
+                                            <div class="button-title">Каталог НПП-ТЗК</div>
                                         </a>
                                     </div>
                                     <div class="sl-wrap swiper-slide">
                                         <a href="" class="btn button-tab">
-                                            <div class="button-title">Партнеры</div>
+                                            <div class="button-title">Склад</div>
                                         </a>
                                     </div>
                                     <div class="sl-wrap swiper-slide">
                                         <a href="" class="btn button-tab">
-                                            <div class="button-title">Заказы</div>
+                                            <div class="button-title">Заказы товаров</div>
                                         </a>
                                     </div>
                                     <div class="sl-wrap swiper-slide">
@@ -185,89 +197,12 @@
             </div>
             <!--/title-panel-box-->
 
-            <!--tiles-box-->
-            <div class="tiles-box">
-                <div class="items-wrap">
-                    <!--item wrap-->
-                    <div class="item-wrap wrap-m2 wrap-t4">
-                        <a href="" class="item-tile-panel-info tile-frow tile-panel border-att">
-                            <div class="tile-title-wrap">
-                                <div class="tile-title">Продано в текущем месяце</div>
-                            </div>
-                            <div class="tile-info-wrap">
-                                <div class="tile-value">1,245</div>
-                            </div>
-                            <div class="tile-ico ico-small">
-                                <img src="./img/icons/sales.svg" alt="">
-                            </div>
-                        </a>
-                    </div>
-                    <!--/item wrap-->
-                    <!--item wrap-->
-                    <div class="item-wrap wrap-m2 wrap-t4">
-                        <a href="" class="item-tile-panel-info tile-frow tile-panel border-att">
-                            <div class="tile-title-wrap">
-                                <div class="tile-title">Заказов в&nbsp;обработке </div>
-                            </div>
-                            <div class="tile-info-wrap">
-                                <div class="tile-value">1,245</div>
-                            </div>
-                            <div class="tile-ico ico-small">
-                                <img src="./img/icons/equipment.svg" alt="">
-                            </div>
-                        </a>
-                    </div>
-                    <!--/item wrap-->
-                    <!--item wrap-->
-                    <div class="item-wrap wrap-m2 wrap-t4">
-                        <a href="" class="item-tile-panel-info tile-frow tile-panel border-att">
-                            <div class="tile-title-wrap">
-                                <div class="tile-title">Не оплаченные заказы</div>
-                            </div>
-                            <div class="tile-info-wrap">
-                                <div class="tile-value">5</div>
-                            </div>
-                            <div class="tile-ico ico-small">
-                                <img src="./img/icons/notpay.svg" alt="">
-                            </div>
-                        </a>
-                    </div>
-                    <!--/item wrap-->
-                    <!--item wrap-->
-                    <div class="item-wrap wrap-m2 wrap-t4">
-                        <a href="" class="item-tile-panel-info tile-frow tile-panel border-att">
-                            <div class="tile-title-wrap">
-                                <div class="tile-title">Новые заказы</div>
-                            </div>
-                            <div class="tile-info-wrap">
-                                <div class="tile-value">5</div>
-                            </div>
-                            <div class="tile-ico ico-small">
-                                <img src="./img/icons/new.svg" alt="">
-                            </div>
-                        </a>
-                    </div>
-                    <!--/item wrap-->
-                </div>
-            </div>
-            <!--/tiles-box-->
-
             <!--panel-box-->
             <div class="panel-box elm-panel">
                 <!-- title -->
                 <div class="panel-title-wrap">
                     <div class="title-wrap">
                         <div class="panel-title h2-title">Список товаров</div>
-                    </div>
-                    <div class="actions-wrap">
-                        <div class="action-wrap wrap-mobile-full">
-                            <a href="" class="btn">
-                                <div class="button-ico">
-                                    <img src="./img/icons/sync.svg" alt="">
-                                </div>
-                                <div class="button-title">Синхронизация с 1С</div>
-                            </a>
-                        </div>
                     </div>
                 </div>
                 <!-- /title -->
@@ -276,6 +211,14 @@
                     <div class="panel-content-wrap">
                         <!-- actions -->
                         <div class="panel-actions-wrap">
+                            <!--search-inner-wrap-->
+                            <div class="search-inner-wrap">
+                                <form action="/" class="frm-main-search">
+                                    <input type="text" class="form-input" placeholder="Искать...">
+                                    <button type="submit" class="btn-form btn-action-ico ico-search"></button>
+                                </form>
+                            </div>
+                            <!--/search-inner-wrap-->
                             <!--filter-box-->
                             <div class="filter-box popup-filter-wrap js-popup-wrap">
                                 <a href="" class="btn btn-popup js-btn-popup-toggle">
@@ -386,21 +329,13 @@
                                         </div>
                                     </form>
                                     <div class="filter-action-wrap">
-                                        <a href="" class="btn button-link js-btn-popup-close">
+                                        <a href="" class="btn button-link td-btn-action-close">
                                             <div class="button-title button-title-border">Закрыть</div>
                                         </a>
                                     </div>
                                 </div>
                             </div>
                             <!--/filter-box-->
-                            <!--search-inner-wrap-->
-                            <div class="search-inner-wrap">
-                                <form action="/" class="frm-main-search">
-                                    <input type="text" class="form-input" placeholder="Искать...">
-                                    <button type="submit" class="btn-form btn-action-ico ico-search"></button>
-                                </form>
-                            </div>
-                            <!--/search-inner-wrap-->
                         </div>
                         <!-- /actions -->
                         <!-- content -->
@@ -414,6 +349,8 @@
                                 <col class="col-title">
                                 <col class="col-small text-center col-mobile-hide">
                                 <col class="col-small text-center">
+                                <col class="col-small text-center col-mobile-hide">
+                                <col class="col-small text-center col-mobile-hide">
                                 <col class="col-small text-center col-mobile-hide">
                                 <col class="col-small text-center col-mobile-hide">
                                 <col class="col-small text-center col-mobile-hide">
@@ -434,7 +371,9 @@
                                         <th>Цена</th>
                                         <th>Остатки</th>
                                         <th>Бронь</th>
+                                        <th>В наличии у&nbsp;механика</th>
                                         <th>Продано</th>
+                                        <th>Действия</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -478,7 +417,37 @@
                                             <div class="td-content">3 шт</div>
                                         </td>
                                         <td>
+                                            <div class="td-content text-att"><b>15 шт</b></div>
+                                        </td>
+                                        <td>
                                             <div class="td-content">45 шт</div>
+                                        </td>
+                                        <td>
+                                            <div class="td-content">
+                                                <div class="frm-field-actions-panel">
+                                                    <div class="field-counter-wrap">
+                                                        <div class="frm-field-counter js-counter">
+                                                            <button class="js-button-counter-plus btn-action-ico ico-plus"></button>
+                                                            <button class="js-button-counter-minus btn-action-ico ico-minus"></button>
+                                                            <input type="text" class="form-input js-input-counter" data-unit="" value="1" data-step="1" data-min="0" data-max="15">
+                                                        </div>
+                                                    </div>
+                                                    <div class="field-action-wrap">
+                                                        <a href="" class="btn">
+                                                            <div class="button-ico">
+                                                                <img src="./img/icons/cart-add.svg" alt="">
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                    <div class="field-action-wrap">
+                                                        <a href="" class="btn button-light">
+                                                            <div class="button-ico">
+                                                                <img src="./img/icons/parameters.svg" alt="">
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </td>
                                     </tr>
                                     <!-- /tr -->
@@ -515,14 +484,44 @@
                                         <td>
                                             <div class="td-content td-text-line td-price">2 500 ₽</div>
                                         </td>
-                                        <td>
-                                            <div class="td-content">15 шт</div>
+                                        <td class="">
+                                            <div class="td-content">2 шт</div>
                                         </td>
                                         <td>
                                             <div class="td-content">3 шт</div>
                                         </td>
                                         <td>
+                                            <div class="td-content text-att"><b>15 шт</b></div>
+                                        </td>
+                                        <td>
                                             <div class="td-content">45 шт</div>
+                                        </td>
+                                        <td>
+                                            <div class="td-content">
+                                                <div class="frm-field-actions-panel">
+                                                    <div class="field-counter-wrap">
+                                                        <div class="frm-field-counter js-counter">
+                                                            <button class="js-button-counter-plus btn-action-ico ico-plus"></button>
+                                                            <button class="js-button-counter-minus btn-action-ico ico-minus"></button>
+                                                            <input type="text" class="form-input js-input-counter" data-unit="" value="1" data-step="1" data-min="0" data-max="15">
+                                                        </div>
+                                                    </div>
+                                                    <div class="field-action-wrap">
+                                                        <a href="" class="btn">
+                                                            <div class="button-ico">
+                                                                <img src="./img/icons/cart-add.svg" alt="">
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                    <div class="field-action-wrap">
+                                                        <a href="" class="btn button-light">
+                                                            <div class="button-ico">
+                                                                <img src="./img/icons/parameters.svg" alt="">
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </td>
                                     </tr>
                                     <!-- /tr -->
@@ -566,7 +565,37 @@
                                             <div class="td-content">3 шт</div>
                                         </td>
                                         <td>
+                                            <div class="td-content text-att"><b>15 шт</b></div>
+                                        </td>
+                                        <td>
                                             <div class="td-content">45 шт</div>
+                                        </td>
+                                        <td>
+                                            <div class="td-content">
+                                                <div class="frm-field-actions-panel">
+                                                    <div class="field-counter-wrap">
+                                                        <div class="frm-field-counter js-counter">
+                                                            <button class="js-button-counter-plus btn-action-ico ico-plus"></button>
+                                                            <button class="js-button-counter-minus btn-action-ico ico-minus"></button>
+                                                            <input type="text" class="form-input js-input-counter" data-unit="" value="1" data-step="1" data-min="0" data-max="15">
+                                                        </div>
+                                                    </div>
+                                                    <div class="field-action-wrap">
+                                                        <a href="" class="btn">
+                                                            <div class="button-ico">
+                                                                <img src="./img/icons/cart-add.svg" alt="">
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                    <div class="field-action-wrap">
+                                                        <a href="" class="btn button-light">
+                                                            <div class="button-ico">
+                                                                <img src="./img/icons/parameters.svg" alt="">
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </td>
                                     </tr>
                                     <!-- /tr -->
@@ -574,7 +603,6 @@
                             </table>
                         </div>
                         <!-- /content -->
-
                     </div>
                     <!--page-actions-box-->
                     <div class="page-actions-box">
@@ -600,8 +628,7 @@
                         </div>
                     </div>
                     <!--/page-actions-box-->
-
-                    <!--buttons-actions-box-->
+                    <!-- buttons actions -->
                     <div class="buttons-actions-box">
                         <div class="action-title">Выбрано: 0 объектов</div>
                         <div class="action-wrap">
@@ -621,18 +648,17 @@
                             </a>
                         </div>
                     </div>
-                    <!--/buttons-actions-box-->
+                    <!-- /buttons actions -->
                 </div>
                 <!-- /panel outer -->
             </div>
             <!--/panel-box-->
-
             <!--panel-box-->
             <div class="panel-box elm-panel">
                 <!-- title -->
                 <div class="panel-title-wrap">
                     <div class="title-wrap">
-                        <div class="panel-title h2-title">История поставок</div>
+                        <div class="panel-title h2-title">История выдачи</div>
                     </div>
                 </div>
                 <!-- /title -->
@@ -641,6 +667,14 @@
                     <div class="panel-content-wrap">
                         <!-- actions -->
                         <div class="panel-actions-wrap">
+                            <!--search-inner-wrap-->
+                            <div class="search-inner-wrap">
+                                <form action="/" class="frm-main-search">
+                                    <input type="text" class="form-input" placeholder="Искать...">
+                                    <button type="submit" class="btn-form btn-action-ico ico-search"></button>
+                                </form>
+                            </div>
+                            <!--/search-inner-wrap-->
                             <!--filter-box-->
                             <div class="filter-box popup-filter-wrap js-popup-wrap">
                                 <a href="" class="btn btn-popup js-btn-popup-toggle">
@@ -656,6 +690,15 @@
                                     <form action="/" class="filter-content-wrap">
                                         <div class="filter-form-wrap">
                                             <div class="frm-row">
+                                                <div class="frm-field">
+                                                    <select class="form-input" required="">
+                                                        <option selected="" disabled="" hidden="" value="">Все категории</option><!--placeholder-->
+                                                        <option>Пункт списка</option>
+                                                        <option>Пункт списка</option>
+                                                        <option>Пункт списка</option>
+                                                        <option>Пункт списка</option>
+                                                    </select>
+                                                </div>
                                                 <div class="frm-field">
                                                     <select class="form-input" required="">
                                                         <option selected="" disabled="" hidden="" value="">Все статусы</option><!--placeholder-->
@@ -742,38 +785,32 @@
                                         </div>
                                     </form>
                                     <div class="filter-action-wrap">
-                                        <a href="" class="btn button-link js-btn-popup-close">
+                                        <a href="" class="btn button-link td-btn-action-close">
                                             <div class="button-title button-title-border">Закрыть</div>
                                         </a>
                                     </div>
                                 </div>
                             </div>
                             <!--/filter-box-->
-                            <!--search-inner-wrap-->
-                            <div class="search-inner-wrap">
-                                <form action="/" class="frm-main-search">
-                                    <input type="text" class="form-input" placeholder="Искать...">
-                                    <button type="submit" class="btn-form btn-action-ico ico-search"></button>
-                                </form>
-                            </div>
-                            <!--/search-inner-wrap-->
                         </div>
                         <!-- /actions -->
                         <!-- content -->
                         <div class="tbl-inner-wrap">
                             <table class="tbl-activities   tbl-activities-title-140 tbl-border">
-                                <col class="col-small">
-                                <col class="col-small">
+                                <col class="col-small text-center">
+                                <col class="col-small text-center">
+                                <col class="col-small text-center">
                                 <col class="col-small col-title">
                                 <col class="col-small col-title">
-                                <col class="col-small">
-                                <col class="col-small">
+                                <col class="col-small text-center">
+                                <col class="col-small text-center">
                                 <thead>
                                     <tr class="">
-                                        <th>Заказ</th>
+                                        <th>Объект</th>
+                                        <th>Договор</th>
                                         <th>Дата создания</th>
-                                        <th>Партнер</th>
-                                        <th>Товар</th>
+                                        <th class="text-center">Механик</th>
+                                        <th class="text-center">Товар</th>
                                         <th>Статус</th>
                                         <th>Действия</th>
                                     </tr>
@@ -781,9 +818,14 @@
                                 <tbody>
                                     <!-- tr -->
                                     <tr class="js-tr-action">
-                                        <td data-title="Заказ" class="td-title-button">
+                                        <td data-title="Объект" class="td-title-button">
                                             <div class="td-content">
-                                                #1248
+                                                АЗС №158
+                                            </div>
+                                        </td>
+                                        <td data-title="Договор">
+                                            <div class="td-content">
+                                                123456
                                             </div>
                                         </td>
                                         <td data-title="Дата создания">
@@ -791,9 +833,9 @@
                                                 15.01.2025
                                             </div>
                                         </td>
-                                        <td data-title="Партнер">
+                                        <td data-title="Механик">
                                             <div class="td-content">
-                                                ООО "Нефтьсервис"
+                                                Иванов А.С.
                                             </div>
                                         </td>
                                         <td data-title="Товар">
@@ -802,11 +844,80 @@
                                                 <div class="td-text-max td-text">
                                                     <span class="td-text-title">2 мойки, касса, Фильтр топливный, касса, 2 мойки, касса, 2 мойки, касса, 2 мойки, касса</span>
                                                 </div>
+                                                <a href="" class="td-btn-action btn-action-ico ico-arrow ico-arrow-next"></a>
                                             </div>
+                                            <!--popup-inner-box-->
+                                            <div class="popup-inner-box">
+                                                <div class="popup-box">
+                                                    <div class="popup-content-wrap">
+                                                        <div class="tbl-popup-wrap">
+                                                            <table class="tbl-border tbl-activities">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th>Фото</th>
+                                                                        <th>S/n</th>
+                                                                        <th>Где установлен</th>
+                                                                        <th>Наименование</th>
+                                                                        <th>Цена</th>
+                                                                        <th>Кол-во</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td data-title="Фото">
+                                                                            <div class="td-content">
+                                                                                <a href="./img/img.jpg" class="elm-photo photo-cover" data-fancybox="row01">
+                                                                                    <!-- <img src="./img/img.jpg" alt=""> -->
+                                                                                </a>
+                                                                            </div>
+                                                                        </td>
+                                                                        <td data-title="S/n">FLT001</td>
+                                                                        <td data-title="Где установлен">ART-2025-001</td>
+                                                                        <td data-title="Наименование">Фильтр топливный</td>
+                                                                        <td data-title="Цена">2 500 ₽</td>
+                                                                        <td data-title="Кол-во">15 шт</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td data-title="Фото">
+                                                                            <div class="td-content">
+                                                                                <a href="./img/img.jpg" class="elm-photo photo-cover" data-fancybox="row01">
+                                                                                    <!-- <img src="./img/img.jpg" alt=""> -->
+                                                                                </a>
+                                                                            </div>
+                                                                        </td>
+                                                                        <td data-title="S/n">FLT001</td>
+                                                                        <td data-title="Где установлен">ART-2025-001</td>
+                                                                        <td data-title="Наименование">Фильтр топливный</td>
+                                                                        <td data-title="Цена">2 500 ₽</td>
+                                                                        <td data-title="Кол-во">15 шт</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td data-title="Фото">
+                                                                            <div class="td-content">
+                                                                                <a href="./img/img.jpg" class="elm-photo photo-cover" data-fancybox="row01">
+                                                                                    <!-- <img src="./img/img.jpg" alt=""> -->
+                                                                                </a>
+                                                                            </div>
+                                                                        </td>
+                                                                        <td data-title="S/n">FLT001</td>
+                                                                        <td data-title="Где установлен">ART-2025-001</td>
+                                                                        <td data-title="Наименование">Фильтр топливный</td>
+                                                                        <td data-title="Цена">2 500 ₽</td>
+                                                                        <td data-title="Кол-во">15 шт</td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                    <div class="popup-footer-wrap">
+                                                        <a href="" class="btn-popup-close td-btn-action-close">Закрыть</a>
+                                                    </div>
+                                                </div>
+                                            </div><!--/popup-inner-box-->
                                         </td>
                                         <td data-title="Статус">
                                             <div class="td-content">
-                                                <div class="elm-status bg-green-light">Сформирован </div>
+                                                <div class="elm-status bg-brown">Установлено </div>
                                             </div>
                                         </td>
                                         <td data-title="Действия">
@@ -819,9 +930,14 @@
                                     <!-- /tr -->
                                     <!-- tr -->
                                     <tr class="js-tr-action">
-                                        <td data-title="Заказ" class="td-title-button">
+                                        <td data-title="Объект" class="td-title-button">
                                             <div class="td-content">
-                                                #1248
+                                                АЗС №158
+                                            </div>
+                                        </td>
+                                        <td data-title="Договор">
+                                            <div class="td-content">
+                                                123456
                                             </div>
                                         </td>
                                         <td data-title="Дата создания">
@@ -829,9 +945,9 @@
                                                 15.01.2025
                                             </div>
                                         </td>
-                                        <td data-title="Партнер">
+                                        <td data-title="Механик">
                                             <div class="td-content">
-                                                ООО "Нефтьсервис"
+                                                Иванов А.С.
                                             </div>
                                         </td>
                                         <td data-title="Товар">
@@ -840,11 +956,80 @@
                                                 <div class="td-text-max td-text">
                                                     <span class="td-text-title">2 мойки, касса, Фильтр топливный, касса, 2 мойки, касса, 2 мойки, касса, 2 мойки, касса</span>
                                                 </div>
+                                                <a href="" class="td-btn-action btn-action-ico ico-arrow ico-arrow-next"></a>
+                                                <!--popup-inner-box-->
+                                                <div class="popup-inner-box">
+                                                    <div class="popup-box">
+                                                        <div class="popup-content-wrap">
+                                                            <div class="tbl-popup-wrap">
+                                                                <table class="tbl-border tbl-activities">
+                                                                    <thead>
+                                                                        <tr>
+                                                                            <th>Фото</th>
+                                                                            <th>S/n</th>
+                                                                            <th>Где установлен</th>
+                                                                            <th>Наименование</th>
+                                                                            <th>Цена</th>
+                                                                            <th>Кол-во</th>
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody>
+                                                                        <tr>
+                                                                            <td data-title="Фото">
+                                                                                <div class="td-content">
+                                                                                    <a href="./img/img.jpg" class="elm-photo photo-cover" data-fancybox="row01">
+                                                                                        <!-- <img src="./img/img.jpg" alt=""> -->
+                                                                                    </a>
+                                                                                </div>
+                                                                            </td>
+                                                                            <td data-title="S/n">FLT001</td>
+                                                                            <td data-title="Где установлен">ART-2025-001</td>
+                                                                            <td data-title="Наименование">Фильтр топливный</td>
+                                                                            <td data-title="Цена">2 500 ₽</td>
+                                                                            <td data-title="Кол-во">15 шт</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td data-title="Фото">
+                                                                                <div class="td-content">
+                                                                                    <a href="./img/img.jpg" class="elm-photo photo-cover" data-fancybox="row01">
+                                                                                        <!-- <img src="./img/img.jpg" alt=""> -->
+                                                                                    </a>
+                                                                                </div>
+                                                                            </td>
+                                                                            <td data-title="S/n">FLT001</td>
+                                                                            <td data-title="Где установлен">ART-2025-001</td>
+                                                                            <td data-title="Наименование">Фильтр топливный</td>
+                                                                            <td data-title="Цена">2 500 ₽</td>
+                                                                            <td data-title="Кол-во">15 шт</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td data-title="Фото">
+                                                                                <div class="td-content">
+                                                                                    <a href="./img/img.jpg" class="elm-photo photo-cover" data-fancybox="row01">
+                                                                                        <!-- <img src="./img/img.jpg" alt=""> -->
+                                                                                    </a>
+                                                                                </div>
+                                                                            </td>
+                                                                            <td data-title="S/n">FLT001</td>
+                                                                            <td data-title="Где установлен">ART-2025-001</td>
+                                                                            <td data-title="Наименование">Фильтр топливный</td>
+                                                                            <td data-title="Цена">2 500 ₽</td>
+                                                                            <td data-title="Кол-во">15 шт</td>
+                                                                        </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                        </div>
+                                                        <div class="popup-footer-wrap">
+                                                            <a href="" class="btn-popup-close td-btn-action-close">Закрыть</a>
+                                                        </div>
+                                                    </div>
+                                                </div><!--/popup-inner-box-->
                                             </div>
                                         </td>
                                         <td data-title="Статус">
                                             <div class="td-content">
-                                                <div class="elm-status bg-green">Обработан</div>
+                                                <div class="elm-status bg-gray">Выполнено </div>
                                             </div>
                                         </td>
                                         <td data-title="Действия">
@@ -857,9 +1042,14 @@
                                     <!-- /tr -->
                                     <!-- tr -->
                                     <tr class="js-tr-action">
-                                        <td data-title="Заказ" class="td-title-button">
+                                        <td data-title="Объект" class="td-title-button">
                                             <div class="td-content">
-                                                #1248
+                                                АЗС №158
+                                            </div>
+                                        </td>
+                                        <td data-title="Договор">
+                                            <div class="td-content">
+                                                123456
                                             </div>
                                         </td>
                                         <td data-title="Дата создания">
@@ -867,9 +1057,9 @@
                                                 15.01.2025
                                             </div>
                                         </td>
-                                        <td data-title="Партнер">
+                                        <td data-title="Механик">
                                             <div class="td-content">
-                                                ООО "Нефтьсервис"
+                                                Иванов А.С.
                                             </div>
                                         </td>
                                         <td data-title="Товар">
@@ -878,11 +1068,80 @@
                                                 <div class="td-text-max td-text">
                                                     <span class="td-text-title">2 мойки, касса, Фильтр топливный, касса, 2 мойки, касса, 2 мойки, касса, 2 мойки, касса</span>
                                                 </div>
+                                                <a href="" class="td-btn-action btn-action-ico ico-arrow ico-arrow-next"></a>
+                                                <!--popup-inner-box-->
+                                                <div class="popup-inner-box">
+                                                    <div class="popup-box">
+                                                        <div class="popup-content-wrap">
+                                                            <div class="tbl-popup-wrap">
+                                                                <table class="tbl-border tbl-activities">
+                                                                    <thead>
+                                                                        <tr>
+                                                                            <th>Фото</th>
+                                                                            <th>S/n</th>
+                                                                            <th>Где установлен</th>
+                                                                            <th>Наименование</th>
+                                                                            <th>Цена</th>
+                                                                            <th>Кол-во</th>
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody>
+                                                                        <tr>
+                                                                            <td data-title="Фото">
+                                                                                <div class="td-content">
+                                                                                    <a href="./img/img.jpg" class="elm-photo photo-cover" data-fancybox="row01">
+                                                                                        <!-- <img src="./img/img.jpg" alt=""> -->
+                                                                                    </a>
+                                                                                </div>
+                                                                            </td>
+                                                                            <td data-title="S/n">FLT001</td>
+                                                                            <td data-title="Где установлен">ART-2025-001</td>
+                                                                            <td data-title="Наименование">Фильтр топливный</td>
+                                                                            <td data-title="Цена">2 500 ₽</td>
+                                                                            <td data-title="Кол-во">15 шт</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td data-title="Фото">
+                                                                                <div class="td-content">
+                                                                                    <a href="./img/img.jpg" class="elm-photo photo-cover" data-fancybox="row01">
+                                                                                        <!-- <img src="./img/img.jpg" alt=""> -->
+                                                                                    </a>
+                                                                                </div>
+                                                                            </td>
+                                                                            <td data-title="S/n">FLT001</td>
+                                                                            <td data-title="Где установлен">ART-2025-001</td>
+                                                                            <td data-title="Наименование">Фильтр топливный</td>
+                                                                            <td data-title="Цена">2 500 ₽</td>
+                                                                            <td data-title="Кол-во">15 шт</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td data-title="Фото">
+                                                                                <div class="td-content">
+                                                                                    <a href="./img/img.jpg" class="elm-photo photo-cover" data-fancybox="row01">
+                                                                                        <!-- <img src="./img/img.jpg" alt=""> -->
+                                                                                    </a>
+                                                                                </div>
+                                                                            </td>
+                                                                            <td data-title="S/n">FLT001</td>
+                                                                            <td data-title="Где установлен">ART-2025-001</td>
+                                                                            <td data-title="Наименование">Фильтр топливный</td>
+                                                                            <td data-title="Цена">2 500 ₽</td>
+                                                                            <td data-title="Кол-во">15 шт</td>
+                                                                        </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                        </div>
+                                                        <div class="popup-footer-wrap">
+                                                            <a href="" class="btn-popup-close td-btn-action-close">Закрыть</a>
+                                                        </div>
+                                                    </div>
+                                                </div><!--/popup-inner-box-->
                                             </div>
                                         </td>
                                         <td data-title="Статус">
                                             <div class="td-content">
-                                                <div class="elm-status bg-violet">В сборке</div>
+                                                <div class="elm-status bg-orange">На складе </div>
                                             </div>
                                         </td>
                                         <td data-title="Действия">
@@ -897,7 +1156,6 @@
                             </table>
                         </div>
                         <!-- /content -->
-
                     </div>
                     <!--page-actions-box-->
                     <div class="page-actions-box">
@@ -923,6 +1181,27 @@
                         </div>
                     </div>
                     <!--/page-actions-box-->
+                    <!-- buttons actions -->
+                    <div class="buttons-actions-box">
+                        <div class="action-title">Выбрано: 0 объектов</div>
+                        <div class="action-wrap">
+                            <a href="" class="btn button-light button-border">
+                                <div class="button-ico">
+                                    <img src="./img/icons/export.svg" alt="">
+                                </div>
+                                <div class="button-title">Экспорт выбранных</div>
+                            </a>
+                        </div>
+                        <div class="action-wrap">
+                            <a href="" class="btn button-light button-border">
+                                <div class="button-ico">
+                                    <img src="./img/icons/del.svg" alt="">
+                                </div>
+                                <div class="button-title">Удалить выбранные</div>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- /buttons actions -->
                 </div>
                 <!-- /panel outer -->
             </div>

@@ -1,5 +1,79 @@
 document.addEventListener("DOMContentLoaded", function() {
 
+
+	//table popups
+	document.addEventListener('click', function (e) {
+  // Открыть
+  const openBtn = e.target.closest('.td-btn-action');
+  if (openBtn) {
+    const cell = openBtn.closest('td');
+    const popup = cell && cell.querySelector('.popup-inner-box');
+    if (popup) {
+      // Закрыть остальные
+      document.querySelectorAll('.popup-inner-box.active').forEach(p => {
+        if (p !== popup) p.classList.remove('active');
+      });
+
+      popup.classList.add('active');
+      document.body.classList.add('popup-open');
+      popup.removeAttribute('hidden');
+
+      e.preventDefault();
+      e.stopPropagation();
+      return false;
+    }
+  }
+
+  // Закрыть по кнопке
+  const closeBtn = e.target.closest('.td-btn-action-close');
+  if (closeBtn) {
+    const popup = closeBtn.closest('.popup-inner-box');
+    if (popup) {
+      popup.classList.remove('active');
+      document.body.classList.remove('popup-open');
+      e.preventDefault();
+      e.stopPropagation();
+      return false;
+    }
+  }
+
+  // Закрыть по клику вне .popup-box, но внутри .popup-inner-box
+  const popup = e.target.closest('.popup-inner-box');
+  if (popup && popup.classList.contains('active')) {
+    const insideBox = e.target.closest('.popup-box');
+    if (!insideBox) {
+      popup.classList.remove('active');
+      document.body.classList.remove('popup-open');
+      e.preventDefault();
+      e.stopPropagation();
+      return false;
+    }
+  }
+
+  // Клик вообще вне попапов и кнопок — закрыть
+  const isClickInsidePopup = e.target.closest('.popup-inner-box');
+  const isClickOnOpenBtn = e.target.closest('.td-btn-action');
+  if (document.body.classList.contains('popup-open') && !isClickInsidePopup && !isClickOnOpenBtn) {
+    document.querySelectorAll('.popup-inner-box.active').forEach(p => p.classList.remove('active'));
+    document.body.classList.remove('popup-open');
+  }
+});
+
+// Esc — закрыть
+document.addEventListener('keydown', function (e) {
+  if (e.key === 'Escape') {
+    const opened = document.querySelectorAll('.popup-inner-box.active');
+    if (opened.length) {
+      opened.forEach(p => p.classList.remove('active'));
+      document.body.classList.remove('popup-open');
+      e.preventDefault();
+      e.stopPropagation();
+      return false;
+    }
+  }
+});
+
+
 	//fancybox
 	Fancybox.bind("[data-fancybox]", {
 		//settings
@@ -22,10 +96,10 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 	//tr action toggle
-	let trActions = document.querySelectorAll('.js-tr-action')
+	let trActions = document.querySelectorAll('.js-tr-action .td-title-button')
 	trActions.forEach(function(trAction) {
 		trAction.addEventListener('click', function() {
-			this.classList.toggle('open')
+			this.closest('.js-tr-action').classList.toggle('open')
 		})
 	})
 

@@ -243,8 +243,7 @@ h4,
 .title-center {
   text-align: center;
 }
-table.no-bg tr:nth-child(2n) th,
-table.no-bg tr:nth-child(2n) td {
+table.no-bg tr:nth-child(2n) {
   background: none;
 }
 table .td-title,
@@ -259,8 +258,7 @@ table .td-value a:not(:hover) {
 table .td-title {
   color: var(--clr-light);
 }
-table.tbl-ui tr:nth-child(2n) th,
-table.tbl-ui tr:nth-child(2n) td {
+table.tbl-ui tr:nth-child(2n) {
   background: none;
 }
 table.tbl-border th,
@@ -362,12 +360,11 @@ table th:has(.elm-status, .tile-status):last-child,
 table td:has(.elm-status, .tile-status):last-child {
   padding-right: 0;
 }
+table tr:nth-child(2n) {
+  background: var(--clr-bg-light);
+}
 table tr:nth-child(2n) .elm-photo {
   background: #fff;
-}
-table tr:nth-child(2n) th,
-table tr:nth-child(2n) td {
-  background: var(--clr-bg-light);
 }
 table .td-text-line {
   white-space: nowrap;
@@ -547,6 +544,9 @@ table .frm-select.inp-button {
     min-width: 0;
     padding: 9px;
   }
+  table.tbl-tiles tr:nth-child(2n) {
+    background: none;
+  }
   table.tbl-tiles tr th,
   table.tbl-tiles tr td {
     border: none;
@@ -717,6 +717,9 @@ table .frm-select.inp-button {
   table.tbl-activities.tbl-activities-title-100 td:has(.elm-type-sticker, .tile-type-sticker):before {
     width: 100px;
   }
+  table.tbl-activities tr:nth-child(2n) .elm-photo {
+    background: var(--clr-bg-light);
+  }
   table.tbl-activities .td-btn-action {
     right: 0;
   }
@@ -818,9 +821,12 @@ table .frm-select.inp-button {
     border: 1px solid var(--clr-border-light);
     border-radius: var(--mainRadius);
     padding: 0 9px 0 9px;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+        flex-direction: column;
   }
-  table.tbl-activities tr:nth-child(2n) th,
-  table.tbl-activities tr:nth-child(2n) td {
+  table.tbl-activities tr:nth-child(2n) {
     background: none;
   }
   table.tbl-activities tr.open {
@@ -875,8 +881,8 @@ table .frm-select.inp-button {
   table.tbl-activities td:has(.frm-select.inp-button):after {
     display: none;
   }
-  table.tbl-activities th:has(.frm-select.inp-button) + .td-title-button,
-  table.tbl-activities td:has(.frm-select.inp-button) + .td-title-button {
+  table.tbl-activities th:has(.frm-select.inp-button) ~ .td-title-button,
+  table.tbl-activities td:has(.frm-select.inp-button) ~ .td-title-button {
     padding-left: 50px !important;
   }
   table.tbl-activities th:has(.frm-select.inp-button) .frm-select,
@@ -948,6 +954,8 @@ table .frm-select.inp-button {
     width: calc(100% + 18px);
     max-width: calc(100% + 18px);
     border: none;
+    -ms-flex-order: -1;
+        order: -1;
   }
   table.tbl-activities th.td-title-button:after,
   table.tbl-activities td.td-title-button:after {
@@ -1014,9 +1022,6 @@ table .frm-select.inp-button {
     width: auto;
     -ms-flex: 1;
         flex: 1;
-  }
-  table.tbl-activities tr:last-child:not(.open) {
-    border-bottom: none;
   }
   table.tbl-border.tbl-activities tbody:last-child tr:last-child th,
   table.tbl-border.tbl-activities tbody:last-child tr:last-child td {
@@ -2360,6 +2365,41 @@ html.with-fancybox body.hide-scrollbar {
   .item-tile-panel-button .tile-title {
     font-size: 18px;
   }
+  .item-tile-panel-info.tile-frow {
+    min-height: 60px;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+        align-items: center;
+    padding: 14px 60px 14px 24px;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -ms-flex-pack: start;
+        justify-content: flex-start;
+    -ms-flex-direction: row;
+        flex-direction: row;
+  }
+  .item-tile-panel-info.tile-frow .tile-title-wrap {
+    width: auto;
+    padding: 0 10px 0 0;
+    max-width: 100%;
+    -ms-flex: 0 0 auto;
+        flex: 0 0 auto;
+    margin: 0;
+  }
+  .item-tile-panel-info.tile-frow .tile-info-wrap {
+    -ms-flex: 0 0 auto;
+        flex: 0 0 auto;
+    width: auto;
+    padding: 0;
+    margin: 0;
+  }
+  .item-tile-panel-info.tile-frow .tile-ico {
+    position: absolute;
+    top: 50%;
+    right: 24px;
+    margin: -14px 0 0 -14px;
+  }
   .item-tile-panel-info .tile-title-wrap {
     padding-right: 40px;
   }
@@ -2400,6 +2440,23 @@ html.with-fancybox body.hide-scrollbar {
   display: flex;
   -ms-flex-align: center;
       align-items: center;
+}
+.form-panel-box .frm-field.field-max {
+  max-width: 100%;
+}
+.form-panel-box .frm-field.field-col {
+  display: block;
+}
+.form-panel-box .frm-field.field-col .field-title {
+  width: 100%;
+  padding-right: 0;
+  margin-bottom: 5px;
+}
+.form-panel-box .frm-field.field-col .field-content {
+  max-width: 100%;
+}
+.form-panel-box .field-four {
+  width: 50%;
 }
 .form-panel-box .field-title {
   width: 132px;
@@ -2722,6 +2779,14 @@ html.with-fancybox body.hide-scrollbar {
 .panel-box {
   margin-bottom: 15px;
 }
+.panel-box .form-panel-outer-wrap.type-border {
+  border-top: 1px solid var(--clr-border-light);
+  padding-top: 12px;
+  margin-top: 20px;
+}
+.panel-box .form-panel-second-wrap {
+  margin-top: 12px;
+}
 .panel-box:not(.elm-panel, .elm-panel-desktop) .panel-tabs-wrap {
   margin-left: 0;
   margin-right: 0;
@@ -2839,6 +2904,10 @@ html.with-fancybox body.hide-scrollbar {
 .panel-box .panel-title-wrap .actions-wrap {
   display: -ms-flexbox;
   display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -ms-flex-pack: end;
+      justify-content: flex-end;
   margin: 10px -6px -8px -6px;
 }
 .panel-box .panel-title-wrap .actions-wrap:first-child {
@@ -2998,6 +3067,17 @@ html.with-fancybox body.hide-scrollbar {
   font-size: 16px;
   line-height: 1.45;
 }
+.title-panel-box .tabs-wrap {
+  width: 100%;
+  position: relative;
+  -ms-flex-order: 3;
+      order: 3;
+  margin-left: -6px;
+  margin-right: -6px;
+}
+.title-panel-box .tabs-slider-box {
+  margin-bottom: 12px;
+}
 .title-panel-box .section-title {
   color: var(--clr-base);
   margin-bottom: 0;
@@ -3067,6 +3147,76 @@ html.with-fancybox body.hide-scrollbar {
 }
 .bg-box > *:last-child {
   margin-bottom: 0;
+}
+body.popup-open {
+  overflow: hidden;
+}
+.popup-inner-box {
+  display: none;
+  padding: 20px 25px;
+  animation: fadein ease 0.2s;
+  -ms-flex-direction: row;
+      flex-direction: row;
+  -ms-flex-pack: center;
+      justify-content: center;
+  -ms-flex-align: center;
+      align-items: center;
+  position: fixed;
+  z-index: 100;
+  background: rgba(0, 0, 0, 0.7);
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.popup-inner-box::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+.popup-inner-box.active {
+  display: -ms-flexbox;
+  display: flex;
+}
+.popup-inner-box .popup-box {
+  display: -ms-flexbox;
+  display: flex;
+  margin: auto;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  position: relative;
+  overflow: hidden;
+  width: 650px;
+  max-width: 100%;
+  max-height: inherit;
+  background-color: #fff;
+  z-index: 20;
+  border-radius: 12px;
+  padding: 12px;
+}
+.popup-inner-box .popup-box .popup-title-wrap,
+.popup-inner-box .popup-box .popup-footer-wrap {
+  width: 100%;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  text-align: center;
+}
+.popup-inner-box .popup-box .popup-content-wrap {
+  width: 100%;
+}
+.popup-inner-box .popup-box .popup-footer-wrap {
+  padding-top: 12px;
+}
+.popup-inner-box .tbl-popup-wrap {
+  border-radius: 12px;
+  border: 1px solid var(--clr-border-light);
+  position: relative;
+  overflow: hidden;
 }
 @media (max-width: 1023px) {
   .title-panel-box {
@@ -3183,6 +3333,28 @@ html.with-fancybox body.hide-scrollbar {
     display: -ms-flexbox !important;
     display: flex !important;
   }
+  .popup-inner-box .tbl-popup-wrap {
+    border-radius: 0;
+    border: none;
+  }
+  .popup-inner-box .tbl-popup-wrap table.tbl-activities tr:has(.elm-photo) {
+    padding-left: 68px;
+  }
+  .popup-inner-box .tbl-popup-wrap table.tbl-activities th:has(.elm-photo),
+  .popup-inner-box .tbl-popup-wrap table.tbl-activities td:has(.elm-photo) {
+    width: 48px;
+    height: 48px;
+    min-width: 48px;
+    padding: 0;
+    border: none !important;
+    position: absolute;
+    top: 9px;
+    left: 9px;
+  }
+  .popup-inner-box .tbl-popup-wrap table.tbl-activities th:has(.elm-photo):before,
+  .popup-inner-box .tbl-popup-wrap table.tbl-activities td:has(.elm-photo):before {
+    display: none;
+  }
 }
 @media (max-width: 743px) {
   .user-box {
@@ -3243,6 +3415,9 @@ html.with-fancybox body.hide-scrollbar {
   .filter-box .form-input {
     border-radius: var(--smallRadius);
   }
+  .panel-box .panel-title-wrap .action-wrap.wrap-mobile-full {
+    width: 100%;
+  }
   .panel-box .panel-actions-wrap:not(:has(.search-inner-wrap)) .filter-box {
     padding-left: 0;
     width: 100%;
@@ -3266,6 +3441,9 @@ html.with-fancybox body.hide-scrollbar {
   }
   .form-panel-box .field-half {
     width: 50%;
+  }
+  .form-panel-box .field-four {
+    width: 25%;
   }
   .form-panel-box .field-title {
     width: auto;
@@ -3565,10 +3743,34 @@ html.with-fancybox body.hide-scrollbar {
   .title-panel-box {
     display: -ms-flexbox;
     display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
   }
   .title-panel-box .actions-wrap {
     display: -ms-flexbox;
     display: flex;
+  }
+  .title-panel-box .tabs-wrap {
+    -ms-flex-negative: 0;
+        flex-shrink: 0;
+  }
+  .panel-box .form-panel-outer-wrap {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: end;
+        align-items: flex-end;
+    gap: 4.5rem;
+  }
+  .panel-box .form-panel-main-wrap {
+    -ms-flex: 1;
+        flex: 1;
+  }
+  .panel-box .form-panel-second-wrap {
+    width: 35%;
+    max-width: 528px;
+    -ms-flex-negative: 0;
+        flex-shrink: 0;
+    margin: 0;
   }
   .panel-box .panel-form-wrap .frm-row {
     display: block;
@@ -3864,6 +4066,12 @@ html.with-fancybox body.hide-scrollbar {
   font-size: 14px;
   color: var(--clr-base);
 }
+.form-input.inp-date {
+  background-image: url(../img/icons/inp-date.svg);
+  background-size: 24px auto;
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+}
 select.form-input {
   display: block;
   text-overflow: ellipsis;
@@ -3961,8 +4169,6 @@ select.form-input:required:invalid {
   position: relative;
   max-width: 100%;
   overflow: hidden;
-  -ms-flex: 1;
-      flex: 1;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
@@ -4005,6 +4211,56 @@ select.form-input:required:invalid {
 .btn[disabled],
 .btn.button-disabled {
   pointer-events: none;
+}
+.button-select {
+  width: 100%;
+  height: auto;
+  border-radius: var(--mainRadius);
+  border: 1px solid var(--clr-border-light);
+  background-color: transparent;
+  padding: 12px 40px 12px 12px;
+  font-size: 16px;
+  line-height: 1.45;
+  white-space: nowrap;
+  color: var(--clr-base);
+  -ms-flex-pack: start;
+      justify-content: flex-start;
+  text-align: left;
+}
+.button-select .button-title {
+  -ms-flex: 1;
+      flex: 1;
+}
+.button-select .button-info {
+  display: block;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.25;
+  color: var(--clr-light);
+}
+.button-select:before {
+  content: "";
+  display: block;
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  background: url(../img/icons/arrow-main.svg) center no-repeat;
+  background-size: 100% auto;
+  top: 23px;
+  right: 4px;
+  margin-top: -12px;
+  filter: var(--filterAttToBase);
+}
+.button-select:hover {
+  background-color: var(--clr-att);
+  border-color: var(--clr-att);
+  color: #fff;
+}
+.button-select:hover:before {
+  filter: var(--filterWhite);
+}
+.button-select:hover .button-info {
+  color: #fff;
 }
 .button-tab {
   font-size: 16px;
@@ -5145,6 +5401,11 @@ table:has(col.text-center:nth-child(1)) td:nth-child(1) .td-content:has(.elm-sta
   -ms-flex-pack: center;
       justify-content: center;
 }
+table:has(col.text-center:nth-child(1)) th:nth-child(1) .td-actions,
+table:has(col.text-center:nth-child(1)) td:nth-child(1) .td-actions {
+  -ms-flex-pack: center;
+      justify-content: center;
+}
 table:has(col.text-left:nth-child(2)) th:nth-child(2),
 table:has(col.text-left:nth-child(2)) td:nth-child(2) {
   text-align: left;
@@ -5159,6 +5420,11 @@ table:has(col.text-center:nth-child(2)) td:nth-child(2) {
 }
 table:has(col.text-center:nth-child(2)) th:nth-child(2) .td-content:has(.elm-status.type-sticker),
 table:has(col.text-center:nth-child(2)) td:nth-child(2) .td-content:has(.elm-status.type-sticker) {
+  -ms-flex-pack: center;
+      justify-content: center;
+}
+table:has(col.text-center:nth-child(2)) th:nth-child(2) .td-actions,
+table:has(col.text-center:nth-child(2)) td:nth-child(2) .td-actions {
   -ms-flex-pack: center;
       justify-content: center;
 }
@@ -5179,6 +5445,11 @@ table:has(col.text-center:nth-child(3)) td:nth-child(3) .td-content:has(.elm-sta
   -ms-flex-pack: center;
       justify-content: center;
 }
+table:has(col.text-center:nth-child(3)) th:nth-child(3) .td-actions,
+table:has(col.text-center:nth-child(3)) td:nth-child(3) .td-actions {
+  -ms-flex-pack: center;
+      justify-content: center;
+}
 table:has(col.text-left:nth-child(4)) th:nth-child(4),
 table:has(col.text-left:nth-child(4)) td:nth-child(4) {
   text-align: left;
@@ -5193,6 +5464,11 @@ table:has(col.text-center:nth-child(4)) td:nth-child(4) {
 }
 table:has(col.text-center:nth-child(4)) th:nth-child(4) .td-content:has(.elm-status.type-sticker),
 table:has(col.text-center:nth-child(4)) td:nth-child(4) .td-content:has(.elm-status.type-sticker) {
+  -ms-flex-pack: center;
+      justify-content: center;
+}
+table:has(col.text-center:nth-child(4)) th:nth-child(4) .td-actions,
+table:has(col.text-center:nth-child(4)) td:nth-child(4) .td-actions {
   -ms-flex-pack: center;
       justify-content: center;
 }
@@ -5213,6 +5489,11 @@ table:has(col.text-center:nth-child(5)) td:nth-child(5) .td-content:has(.elm-sta
   -ms-flex-pack: center;
       justify-content: center;
 }
+table:has(col.text-center:nth-child(5)) th:nth-child(5) .td-actions,
+table:has(col.text-center:nth-child(5)) td:nth-child(5) .td-actions {
+  -ms-flex-pack: center;
+      justify-content: center;
+}
 table:has(col.text-left:nth-child(6)) th:nth-child(6),
 table:has(col.text-left:nth-child(6)) td:nth-child(6) {
   text-align: left;
@@ -5227,6 +5508,11 @@ table:has(col.text-center:nth-child(6)) td:nth-child(6) {
 }
 table:has(col.text-center:nth-child(6)) th:nth-child(6) .td-content:has(.elm-status.type-sticker),
 table:has(col.text-center:nth-child(6)) td:nth-child(6) .td-content:has(.elm-status.type-sticker) {
+  -ms-flex-pack: center;
+      justify-content: center;
+}
+table:has(col.text-center:nth-child(6)) th:nth-child(6) .td-actions,
+table:has(col.text-center:nth-child(6)) td:nth-child(6) .td-actions {
   -ms-flex-pack: center;
       justify-content: center;
 }
@@ -5247,6 +5533,11 @@ table:has(col.text-center:nth-child(7)) td:nth-child(7) .td-content:has(.elm-sta
   -ms-flex-pack: center;
       justify-content: center;
 }
+table:has(col.text-center:nth-child(7)) th:nth-child(7) .td-actions,
+table:has(col.text-center:nth-child(7)) td:nth-child(7) .td-actions {
+  -ms-flex-pack: center;
+      justify-content: center;
+}
 table:has(col.text-left:nth-child(8)) th:nth-child(8),
 table:has(col.text-left:nth-child(8)) td:nth-child(8) {
   text-align: left;
@@ -5261,6 +5552,11 @@ table:has(col.text-center:nth-child(8)) td:nth-child(8) {
 }
 table:has(col.text-center:nth-child(8)) th:nth-child(8) .td-content:has(.elm-status.type-sticker),
 table:has(col.text-center:nth-child(8)) td:nth-child(8) .td-content:has(.elm-status.type-sticker) {
+  -ms-flex-pack: center;
+      justify-content: center;
+}
+table:has(col.text-center:nth-child(8)) th:nth-child(8) .td-actions,
+table:has(col.text-center:nth-child(8)) td:nth-child(8) .td-actions {
   -ms-flex-pack: center;
       justify-content: center;
 }
@@ -5281,6 +5577,11 @@ table:has(col.text-center:nth-child(9)) td:nth-child(9) .td-content:has(.elm-sta
   -ms-flex-pack: center;
       justify-content: center;
 }
+table:has(col.text-center:nth-child(9)) th:nth-child(9) .td-actions,
+table:has(col.text-center:nth-child(9)) td:nth-child(9) .td-actions {
+  -ms-flex-pack: center;
+      justify-content: center;
+}
 table:has(col.text-left:nth-child(10)) th:nth-child(10),
 table:has(col.text-left:nth-child(10)) td:nth-child(10) {
   text-align: left;
@@ -5295,6 +5596,11 @@ table:has(col.text-center:nth-child(10)) td:nth-child(10) {
 }
 table:has(col.text-center:nth-child(10)) th:nth-child(10) .td-content:has(.elm-status.type-sticker),
 table:has(col.text-center:nth-child(10)) td:nth-child(10) .td-content:has(.elm-status.type-sticker) {
+  -ms-flex-pack: center;
+      justify-content: center;
+}
+table:has(col.text-center:nth-child(10)) th:nth-child(10) .td-actions,
+table:has(col.text-center:nth-child(10)) td:nth-child(10) .td-actions {
   -ms-flex-pack: center;
       justify-content: center;
 }
@@ -5315,6 +5621,11 @@ table:has(col.text-center:nth-child(11)) td:nth-child(11) .td-content:has(.elm-s
   -ms-flex-pack: center;
       justify-content: center;
 }
+table:has(col.text-center:nth-child(11)) th:nth-child(11) .td-actions,
+table:has(col.text-center:nth-child(11)) td:nth-child(11) .td-actions {
+  -ms-flex-pack: center;
+      justify-content: center;
+}
 table:has(col.text-left:nth-child(12)) th:nth-child(12),
 table:has(col.text-left:nth-child(12)) td:nth-child(12) {
   text-align: left;
@@ -5329,6 +5640,11 @@ table:has(col.text-center:nth-child(12)) td:nth-child(12) {
 }
 table:has(col.text-center:nth-child(12)) th:nth-child(12) .td-content:has(.elm-status.type-sticker),
 table:has(col.text-center:nth-child(12)) td:nth-child(12) .td-content:has(.elm-status.type-sticker) {
+  -ms-flex-pack: center;
+      justify-content: center;
+}
+table:has(col.text-center:nth-child(12)) th:nth-child(12) .td-actions,
+table:has(col.text-center:nth-child(12)) td:nth-child(12) .td-actions {
   -ms-flex-pack: center;
       justify-content: center;
 }
@@ -5349,6 +5665,11 @@ table:has(col.text-center:nth-child(13)) td:nth-child(13) .td-content:has(.elm-s
   -ms-flex-pack: center;
       justify-content: center;
 }
+table:has(col.text-center:nth-child(13)) th:nth-child(13) .td-actions,
+table:has(col.text-center:nth-child(13)) td:nth-child(13) .td-actions {
+  -ms-flex-pack: center;
+      justify-content: center;
+}
 table:has(col.text-left:nth-child(14)) th:nth-child(14),
 table:has(col.text-left:nth-child(14)) td:nth-child(14) {
   text-align: left;
@@ -5363,6 +5684,11 @@ table:has(col.text-center:nth-child(14)) td:nth-child(14) {
 }
 table:has(col.text-center:nth-child(14)) th:nth-child(14) .td-content:has(.elm-status.type-sticker),
 table:has(col.text-center:nth-child(14)) td:nth-child(14) .td-content:has(.elm-status.type-sticker) {
+  -ms-flex-pack: center;
+      justify-content: center;
+}
+table:has(col.text-center:nth-child(14)) th:nth-child(14) .td-actions,
+table:has(col.text-center:nth-child(14)) td:nth-child(14) .td-actions {
   -ms-flex-pack: center;
       justify-content: center;
 }
@@ -5383,6 +5709,11 @@ table:has(col.text-center:nth-child(15)) td:nth-child(15) .td-content:has(.elm-s
   -ms-flex-pack: center;
       justify-content: center;
 }
+table:has(col.text-center:nth-child(15)) th:nth-child(15) .td-actions,
+table:has(col.text-center:nth-child(15)) td:nth-child(15) .td-actions {
+  -ms-flex-pack: center;
+      justify-content: center;
+}
 table:has(col.text-left:nth-child(16)) th:nth-child(16),
 table:has(col.text-left:nth-child(16)) td:nth-child(16) {
   text-align: left;
@@ -5397,6 +5728,11 @@ table:has(col.text-center:nth-child(16)) td:nth-child(16) {
 }
 table:has(col.text-center:nth-child(16)) th:nth-child(16) .td-content:has(.elm-status.type-sticker),
 table:has(col.text-center:nth-child(16)) td:nth-child(16) .td-content:has(.elm-status.type-sticker) {
+  -ms-flex-pack: center;
+      justify-content: center;
+}
+table:has(col.text-center:nth-child(16)) th:nth-child(16) .td-actions,
+table:has(col.text-center:nth-child(16)) td:nth-child(16) .td-actions {
   -ms-flex-pack: center;
       justify-content: center;
 }
@@ -5417,6 +5753,11 @@ table:has(col.text-center:nth-child(17)) td:nth-child(17) .td-content:has(.elm-s
   -ms-flex-pack: center;
       justify-content: center;
 }
+table:has(col.text-center:nth-child(17)) th:nth-child(17) .td-actions,
+table:has(col.text-center:nth-child(17)) td:nth-child(17) .td-actions {
+  -ms-flex-pack: center;
+      justify-content: center;
+}
 table:has(col.text-left:nth-child(18)) th:nth-child(18),
 table:has(col.text-left:nth-child(18)) td:nth-child(18) {
   text-align: left;
@@ -5431,6 +5772,11 @@ table:has(col.text-center:nth-child(18)) td:nth-child(18) {
 }
 table:has(col.text-center:nth-child(18)) th:nth-child(18) .td-content:has(.elm-status.type-sticker),
 table:has(col.text-center:nth-child(18)) td:nth-child(18) .td-content:has(.elm-status.type-sticker) {
+  -ms-flex-pack: center;
+      justify-content: center;
+}
+table:has(col.text-center:nth-child(18)) th:nth-child(18) .td-actions,
+table:has(col.text-center:nth-child(18)) td:nth-child(18) .td-actions {
   -ms-flex-pack: center;
       justify-content: center;
 }
@@ -5451,6 +5797,11 @@ table:has(col.text-center:nth-child(19)) td:nth-child(19) .td-content:has(.elm-s
   -ms-flex-pack: center;
       justify-content: center;
 }
+table:has(col.text-center:nth-child(19)) th:nth-child(19) .td-actions,
+table:has(col.text-center:nth-child(19)) td:nth-child(19) .td-actions {
+  -ms-flex-pack: center;
+      justify-content: center;
+}
 table:has(col.text-left:nth-child(20)) th:nth-child(20),
 table:has(col.text-left:nth-child(20)) td:nth-child(20) {
   text-align: left;
@@ -5465,6 +5816,11 @@ table:has(col.text-center:nth-child(20)) td:nth-child(20) {
 }
 table:has(col.text-center:nth-child(20)) th:nth-child(20) .td-content:has(.elm-status.type-sticker),
 table:has(col.text-center:nth-child(20)) td:nth-child(20) .td-content:has(.elm-status.type-sticker) {
+  -ms-flex-pack: center;
+      justify-content: center;
+}
+table:has(col.text-center:nth-child(20)) th:nth-child(20) .td-actions,
+table:has(col.text-center:nth-child(20)) td:nth-child(20) .td-actions {
   -ms-flex-pack: center;
       justify-content: center;
 }
@@ -5485,6 +5841,11 @@ table:has(col.text-center:nth-child(21)) td:nth-child(21) .td-content:has(.elm-s
   -ms-flex-pack: center;
       justify-content: center;
 }
+table:has(col.text-center:nth-child(21)) th:nth-child(21) .td-actions,
+table:has(col.text-center:nth-child(21)) td:nth-child(21) .td-actions {
+  -ms-flex-pack: center;
+      justify-content: center;
+}
 table:has(col.text-left:nth-child(22)) th:nth-child(22),
 table:has(col.text-left:nth-child(22)) td:nth-child(22) {
   text-align: left;
@@ -5499,6 +5860,11 @@ table:has(col.text-center:nth-child(22)) td:nth-child(22) {
 }
 table:has(col.text-center:nth-child(22)) th:nth-child(22) .td-content:has(.elm-status.type-sticker),
 table:has(col.text-center:nth-child(22)) td:nth-child(22) .td-content:has(.elm-status.type-sticker) {
+  -ms-flex-pack: center;
+      justify-content: center;
+}
+table:has(col.text-center:nth-child(22)) th:nth-child(22) .td-actions,
+table:has(col.text-center:nth-child(22)) td:nth-child(22) .td-actions {
   -ms-flex-pack: center;
       justify-content: center;
 }
@@ -5519,6 +5885,11 @@ table:has(col.text-center:nth-child(23)) td:nth-child(23) .td-content:has(.elm-s
   -ms-flex-pack: center;
       justify-content: center;
 }
+table:has(col.text-center:nth-child(23)) th:nth-child(23) .td-actions,
+table:has(col.text-center:nth-child(23)) td:nth-child(23) .td-actions {
+  -ms-flex-pack: center;
+      justify-content: center;
+}
 table:has(col.text-left:nth-child(24)) th:nth-child(24),
 table:has(col.text-left:nth-child(24)) td:nth-child(24) {
   text-align: left;
@@ -5533,6 +5904,11 @@ table:has(col.text-center:nth-child(24)) td:nth-child(24) {
 }
 table:has(col.text-center:nth-child(24)) th:nth-child(24) .td-content:has(.elm-status.type-sticker),
 table:has(col.text-center:nth-child(24)) td:nth-child(24) .td-content:has(.elm-status.type-sticker) {
+  -ms-flex-pack: center;
+      justify-content: center;
+}
+table:has(col.text-center:nth-child(24)) th:nth-child(24) .td-actions,
+table:has(col.text-center:nth-child(24)) td:nth-child(24) .td-actions {
   -ms-flex-pack: center;
       justify-content: center;
 }
@@ -5553,6 +5929,11 @@ table:has(col.text-center:nth-child(25)) td:nth-child(25) .td-content:has(.elm-s
   -ms-flex-pack: center;
       justify-content: center;
 }
+table:has(col.text-center:nth-child(25)) th:nth-child(25) .td-actions,
+table:has(col.text-center:nth-child(25)) td:nth-child(25) .td-actions {
+  -ms-flex-pack: center;
+      justify-content: center;
+}
 table:has(col.text-left:nth-child(26)) th:nth-child(26),
 table:has(col.text-left:nth-child(26)) td:nth-child(26) {
   text-align: left;
@@ -5567,6 +5948,11 @@ table:has(col.text-center:nth-child(26)) td:nth-child(26) {
 }
 table:has(col.text-center:nth-child(26)) th:nth-child(26) .td-content:has(.elm-status.type-sticker),
 table:has(col.text-center:nth-child(26)) td:nth-child(26) .td-content:has(.elm-status.type-sticker) {
+  -ms-flex-pack: center;
+      justify-content: center;
+}
+table:has(col.text-center:nth-child(26)) th:nth-child(26) .td-actions,
+table:has(col.text-center:nth-child(26)) td:nth-child(26) .td-actions {
   -ms-flex-pack: center;
       justify-content: center;
 }
@@ -5587,6 +5973,11 @@ table:has(col.text-center:nth-child(27)) td:nth-child(27) .td-content:has(.elm-s
   -ms-flex-pack: center;
       justify-content: center;
 }
+table:has(col.text-center:nth-child(27)) th:nth-child(27) .td-actions,
+table:has(col.text-center:nth-child(27)) td:nth-child(27) .td-actions {
+  -ms-flex-pack: center;
+      justify-content: center;
+}
 table:has(col.text-left:nth-child(28)) th:nth-child(28),
 table:has(col.text-left:nth-child(28)) td:nth-child(28) {
   text-align: left;
@@ -5601,6 +5992,11 @@ table:has(col.text-center:nth-child(28)) td:nth-child(28) {
 }
 table:has(col.text-center:nth-child(28)) th:nth-child(28) .td-content:has(.elm-status.type-sticker),
 table:has(col.text-center:nth-child(28)) td:nth-child(28) .td-content:has(.elm-status.type-sticker) {
+  -ms-flex-pack: center;
+      justify-content: center;
+}
+table:has(col.text-center:nth-child(28)) th:nth-child(28) .td-actions,
+table:has(col.text-center:nth-child(28)) td:nth-child(28) .td-actions {
   -ms-flex-pack: center;
       justify-content: center;
 }
@@ -5621,6 +6017,11 @@ table:has(col.text-center:nth-child(29)) td:nth-child(29) .td-content:has(.elm-s
   -ms-flex-pack: center;
       justify-content: center;
 }
+table:has(col.text-center:nth-child(29)) th:nth-child(29) .td-actions,
+table:has(col.text-center:nth-child(29)) td:nth-child(29) .td-actions {
+  -ms-flex-pack: center;
+      justify-content: center;
+}
 table:has(col.text-left:nth-child(30)) th:nth-child(30),
 table:has(col.text-left:nth-child(30)) td:nth-child(30) {
   text-align: left;
@@ -5635,6 +6036,11 @@ table:has(col.text-center:nth-child(30)) td:nth-child(30) {
 }
 table:has(col.text-center:nth-child(30)) th:nth-child(30) .td-content:has(.elm-status.type-sticker),
 table:has(col.text-center:nth-child(30)) td:nth-child(30) .td-content:has(.elm-status.type-sticker) {
+  -ms-flex-pack: center;
+      justify-content: center;
+}
+table:has(col.text-center:nth-child(30)) th:nth-child(30) .td-actions,
+table:has(col.text-center:nth-child(30)) td:nth-child(30) .td-actions {
   -ms-flex-pack: center;
       justify-content: center;
 }
@@ -5925,6 +6331,9 @@ input.form-clear-autofill::-webkit-contacts-auto-fill-button {
 /* color bg */
 .bg-white {
   background-color: #fff;
+}
+.bg-red {
+  background-color: #f00;
 }
 .bg-green {
   background-color: var(--clr-green);
