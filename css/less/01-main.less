@@ -639,21 +639,23 @@ table {
 	}
 	table.tbl-activities {
 		display: block;
-		columns: 2;
 		flex-wrap: wrap;
 		align-items: flex-start;
-		column-gap: 10px;
 		position: relative;
+		&:has(tbody~tbody) {
+			column-gap: 10px;
+			columns: 2;
+		}
 		&.tbl-border tbody:last-child tr:last-child th, &.tbl-border tbody:last-child tr:last-child td {
 			border-bottom: 1px solid var(--clr-border-light);
-			border-bottom: none;
+			//border-bottom: none;
+		}
+		.td-title-button {
+			border-bottom: none !important;;
 		}
 		.td-content:has(.elm-status.type-sticker) {
 			min-width: 0;
 			justify-content: flex-start !important;
-		}
-		&.tbl-activities {
-			columns: 1;
 		}
 		&.tbl-activities-title-140 {
 			th, td {

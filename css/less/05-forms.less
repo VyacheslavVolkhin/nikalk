@@ -1,9 +1,7 @@
 /* ----------------------------------- *\
 			forms elements styles
 \* ----------------------------------- */
-.frm-field-select {
-	display: block;
-	position: relative;
+.frm-field-select, .frm-field-select-input {
 	.btn-popup {
 		width: 100%;
 		flex-wrap: wrap;
@@ -52,6 +50,37 @@
 			}
 		}
 	}
+}
+.frm-field-select-input {
+	.btn-popup {
+		flex-direction: row;
+		align-items: center;
+		flex-wrap: nowrap;
+		padding-right: 10px;
+		.button-head {
+			width: auto;
+			flex-shrink: 0;
+		}
+		.button-input {
+			flex: 1;
+		}
+		.form-input {
+			height: 28px;
+			border: none;
+			background: none;
+			border-radius: 0;
+			font-size: 14px;
+			font-weight: 400;
+		}
+		&:before {
+			display: none;
+		}
+	}
+}
+.frm-field-select {
+	display: block;
+	position: relative;
+	
 	.active {
 		&~.select-content-block {
 			display: block;
@@ -413,6 +442,15 @@
 	}
 }
 @media (max-width: 743px) {
+	.frm-field-select-input {
+		.btn-popup {
+			flex-wrap: wrap;
+			gap: 0;
+			.button-head {
+				width: 100%;
+			}
+		}
+	}
 	.frm-field-actions-panel {
 		.btn {
 			height: 28px;

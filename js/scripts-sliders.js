@@ -1,19 +1,21 @@
-document.addEventListener("DOMContentLoaded", function() {
-
+document.querySelectorAll('.slider-inner-wrap.slider-tabs').forEach(function(wrap){
 	//slider tabs
-	const swiperSliderTabs = new Swiper('.slider-tabs .swiper', {
-		loop: false,
-		slidesPerView: 'auto',
-		spaceBetween: 0,
-		autoHeight: true,
-		speed: 400,
-		pagination: false,
-		autoplay: false,
-		navigation: {
-			nextEl: '.button-slider-tabs-next',
-			prevEl: '.button-slider-tabs-prev',
-		},
-	
-	});
+    const swiperEl = wrap.querySelector('.swiper');
+    const nextEl = wrap.querySelector('.button-slider-tabs-next');
+    const prevEl = wrap.querySelector('.button-slider-tabs-prev');
 
-})
+    const swiper = new Swiper(swiperEl, {
+        loop: false,
+        slidesPerView: 'auto',
+        spaceBetween: 0,
+        autoHeight: true,
+        speed: 400,
+        pagination: false,
+        autoplay: false,
+        navigation: {
+            nextEl: nextEl,
+            prevEl: prevEl,
+        },
+    });
+
+});
