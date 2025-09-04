@@ -447,6 +447,9 @@
 		table {
 			margin: 0;
 		}
+		&+.tbl-inner-wrap {
+			margin-top: 15px;
+		}
 	}
 	.panel-title-wrap {
 		margin-bottom: 8px;
@@ -1332,6 +1335,11 @@ body.popup-open {
 		}
 	}
 	.panel-box {
+		.tbl-inner-wrap {
+			&+.tbl-inner-wrap {
+				border-top: 1px solid var(--clr-border-light);
+			}
+		}
 		table {
 			thead {
 				white-space: nowrap;
