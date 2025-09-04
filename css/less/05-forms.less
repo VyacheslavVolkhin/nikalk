@@ -218,7 +218,7 @@
 	padding: 0 5px;
 	margin-bottom: 10px;
 }
-.frm-select {
+.frm-select, .frm-select-toggle {
 	position: relative;
 	display: block;
 	overflow: hidden;
@@ -253,6 +253,46 @@
         }
 		&:after {
 			opacity: 0;
+		}
+	}
+}
+.frm-select-toggle {
+	width: 24px;height: 24px;
+	flex-shrink: 0;
+	line-height: 1;
+	position: relative;
+	overflow: hidden;
+	input {
+		&:checked {
+			&~label {
+				&:before, &:after {
+					border-color: var(--clr-att);
+				}
+				&:after {
+					left: 12px;
+				}
+			}
+		}
+	}
+	label {
+		width: 24px;height: 24px;
+		&:before {
+			width: 24px;height: 14px;
+			border-radius: 7px;
+			border: 2px solid var(--clr-base);
+			top: 50%;left: 0;right: 0;
+			transition: all ease 0.2s;
+			margin-top: -7px;
+		}
+		&:after {
+			width: 8px;height: 8px;
+			border: 2px solid var(--clr-base);
+			position: absolute;
+			top: 50%;left: 4px;
+			opacity: 1;
+			border-radius: 50%;
+			margin-top: -4px;
+			transition: all ease 0.2s;
 		}
 	}
 }

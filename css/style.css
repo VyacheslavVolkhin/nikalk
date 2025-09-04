@@ -472,8 +472,14 @@ table .tile-status {
 table .col-small {
   width: 50px;
 }
+table .col-medium {
+  width: 180px;
+}
 table .col-title {
   min-width: 300px;
+}
+table:has(.col-title~.col-title) .col-title {
+  min-width: 220px;
 }
 table .col-select {
   width: 62px;
@@ -1022,10 +1028,6 @@ table .frm-select.inp-button {
     width: auto;
     -ms-flex: 1;
         flex: 1;
-  }
-  table.tbl-border.tbl-activities tbody:last-child tr:last-child th,
-  table.tbl-border.tbl-activities tbody:last-child tr:last-child td {
-    border-bottom: 1px solid var(--clr-border-light);
   }
   table.tbl-border.tbl-activities tbody:last-child tr:last-child th:last-child,
   table.tbl-border.tbl-activities tbody:last-child tr:last-child td:last-child {
@@ -2619,6 +2621,19 @@ html.with-fancybox body.hide-scrollbar {
   left: auto;
   right: -10px;
 }
+.tabs-slider-box.type-border {
+  position: relative;
+}
+.tabs-slider-box.type-border:before {
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 8px;
+  right: -6px;
+  height: 1px;
+  background: var(--clr-border-light);
+}
 .buttons-actions-box {
   margin-bottom: 5px;
   margin-left: -5px;
@@ -2653,7 +2668,7 @@ html.with-fancybox body.hide-scrollbar {
 }
 .page-actions-box {
   margin-bottom: 15px;
-  margin-top: 15px;
+  margin-top: 0;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-pack: justify;
@@ -2870,6 +2885,12 @@ html.with-fancybox body.hide-scrollbar {
 }
 .panel-box .elm-panel {
   padding: 11px;
+}
+.panel-box .page-actions-box {
+  margin-left: -11px;
+  margin-right: -11px;
+  padding-left: 11px;
+  padding-right: 11px;
 }
 .panel-box .tbl-inner-wrap {
   margin: 0 -11px;
@@ -3239,12 +3260,16 @@ body.popup-open {
         flex-wrap: wrap;
     max-width: 100%;
   }
+  .panel-box table thead br {
+    display: none;
+  }
   .panel-box .tbl-inner-wrap {
     margin: 0;
   }
   .panel-box .page-actions-box {
     margin-left: -10px;
     margin-right: -10px;
+    margin-top: 15px;
     padding-left: 10px;
     padding-right: 10px;
     border-top: 1px solid var(--clr-border-light);
@@ -3702,6 +3727,18 @@ body.popup-open {
   .form-panel-box .field-third .field-title + .field-content {
     max-width: 100%;
   }
+  .panel-box .panel-title-wrap .wrap-tablet-first {
+    -ms-flex-order: -1;
+        order: -1;
+    width: 100%;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: end;
+        justify-content: flex-end;
+  }
+  .panel-box .panel-title-wrap .wrap-tablet-first .btn {
+    width: auto;
+  }
   .panel-box .search-inner-wrap.full-tablet {
     width: 100%;
     -ms-flex: 0 0 100%;
@@ -3722,6 +3759,10 @@ body.popup-open {
   }
 }
 @media (min-width: 1024px) {
+  .page-actions-box {
+    padding-top: 15px;
+    border-top: 1px solid var(--clr-border-light);
+  }
   .form-panel-box .frm-row,
   .form-panel-box .frm-row-submit {
     margin: 0 -15px;
@@ -3753,6 +3794,40 @@ body.popup-open {
   .title-panel-box .tabs-wrap {
     -ms-flex-negative: 0;
         flex-shrink: 0;
+  }
+  .title-panel-box .tabs-slider-box {
+    margin-bottom: 15px;
+  }
+  .panel-box table thead {
+    white-space: nowrap;
+  }
+  .panel-box.elm-panel-desktop .elm-panel-desktop .tbl-inner-wrap,
+  .panel-box.elm-panel .elm-panel-desktop .tbl-inner-wrap,
+  .panel-box.elm-panel-desktop .elm-panel .tbl-inner-wrap,
+  .panel-box.elm-panel .elm-panel .tbl-inner-wrap {
+    margin-left: -11px;
+    margin-right: -11px;
+  }
+  .panel-box.elm-panel-desktop .elm-panel-desktop .page-actions-box,
+  .panel-box.elm-panel .elm-panel-desktop .page-actions-box,
+  .panel-box.elm-panel-desktop .elm-panel .page-actions-box,
+  .panel-box.elm-panel .elm-panel .page-actions-box {
+    margin-left: -11px;
+    margin-right: -11px;
+    padding-left: 11px;
+    padding-right: 11px;
+  }
+  .panel-box.elm-panel-desktop .tbl-inner-wrap,
+  .panel-box.elm-panel .tbl-inner-wrap {
+    margin-left: -14px;
+    margin-right: -14px;
+  }
+  .panel-box.elm-panel-desktop .page-actions-box,
+  .panel-box.elm-panel .page-actions-box {
+    margin-left: -14px;
+    margin-right: -14px;
+    padding-left: 14px;
+    padding-right: 14px;
   }
   .panel-box .form-panel-outer-wrap {
     display: -ms-flexbox;
@@ -4890,13 +4965,15 @@ select.form-input:required:invalid {
   padding: 0 5px;
   margin-bottom: 10px;
 }
-.frm-select {
+.frm-select,
+.frm-select-toggle {
   position: relative;
   display: block;
   overflow: hidden;
   line-height: 1;
 }
-.frm-select input {
+.frm-select input,
+.frm-select-toggle input {
   display: block;
   position: absolute;
   top: 0;
@@ -4907,22 +4984,70 @@ select.form-input:required:invalid {
   margin: 0;
   padding: 0;
 }
-.frm-select input:checked ~ label:after {
+.frm-select input:checked ~ label:after,
+.frm-select-toggle input:checked ~ label:after {
   opacity: 1;
 }
-.frm-select label {
+.frm-select label,
+.frm-select-toggle label {
   display: block;
   position: relative;
   cursor: pointer;
 }
 .frm-select label:before,
-.frm-select label:after {
+.frm-select-toggle label:before,
+.frm-select label:after,
+.frm-select-toggle label:after {
   content: "";
   display: block;
   position: absolute;
 }
-.frm-select label:after {
+.frm-select label:after,
+.frm-select-toggle label:after {
   opacity: 0;
+}
+.frm-select-toggle {
+  width: 24px;
+  height: 24px;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  line-height: 1;
+  position: relative;
+  overflow: hidden;
+}
+.frm-select-toggle input:checked ~ label:before,
+.frm-select-toggle input:checked ~ label:after {
+  border-color: var(--clr-att);
+}
+.frm-select-toggle input:checked ~ label:after {
+  left: 12px;
+}
+.frm-select-toggle label {
+  width: 24px;
+  height: 24px;
+}
+.frm-select-toggle label:before {
+  width: 24px;
+  height: 14px;
+  border-radius: 7px;
+  border: 2px solid var(--clr-base);
+  top: 50%;
+  left: 0;
+  right: 0;
+  transition: all ease 0.2s;
+  margin-top: -7px;
+}
+.frm-select-toggle label:after {
+  width: 8px;
+  height: 8px;
+  border: 2px solid var(--clr-base);
+  position: absolute;
+  top: 50%;
+  left: 4px;
+  opacity: 1;
+  border-radius: 50%;
+  margin-top: -4px;
+  transition: all ease 0.2s;
 }
 .frm-select.inp-button {
   width: 40px;

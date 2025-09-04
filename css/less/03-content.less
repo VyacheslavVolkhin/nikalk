@@ -197,6 +197,17 @@
 		left: auto;
 		right: -10px;
 	}
+	&.type-border {
+		position: relative;
+		&:before {
+			content: "";
+			display: block;
+			position: absolute;
+			bottom: 0;left: 8px;right: -6px;
+			height: 1px;
+			background: var(--clr-border-light);
+		}
+	}
 }
 .buttons-actions-box {
 	margin-bottom: 5px;
@@ -227,7 +238,7 @@
 }
 .page-actions-box {
 	margin-bottom: 15px;
-	margin-top: 15px;
+	margin-top: 0;
 	display: flex;
 	justify-content: space-between;
 	&:last-child {
@@ -420,6 +431,12 @@
 	}
 	.elm-panel {
 		padding: 11px;
+	}
+	.page-actions-box {
+		margin-left: -11px;
+		margin-right: -11px;
+		padding-left: 11px;
+		padding-right: 11px;
 	}
 	.tbl-inner-wrap {
 		margin: 0 -11px;
@@ -759,12 +776,20 @@ body.popup-open {
 		}
 	}
 	.panel-box {
+		table {
+			thead {
+				br {
+					display: none;
+				}
+			}
+		}
 		.tbl-inner-wrap {
 			margin: 0;
 		}
 		.page-actions-box {
 			margin-left: -10px;
 			margin-right: -10px;
+			margin-top: 15px;
 			padding-left: 10px;
 			padding-right: 10px;
 			border-top: 1px solid var(--clr-border-light);
@@ -1217,6 +1242,17 @@ body.popup-open {
 		}
 	}
 	.panel-box {
+		.panel-title-wrap {
+			.wrap-tablet-first {
+				order: -1;
+				width: 100%;
+				display: flex;
+				justify-content: flex-end;
+				.btn {
+					width: auto;
+				}
+			}
+		}
 		.search-inner-wrap {
 			&.full-tablet {
 				width: 100%;
@@ -1246,6 +1282,10 @@ body.popup-open {
 	}
 }
 @media (min-width: 1024px) {
+	.page-actions-box {
+		padding-top: 15px;
+		border-top: 1px solid var(--clr-border-light);
+	}
 	.form-panel-box {
 		.frm-row, .frm-row-submit {
 			margin: 0 -15px;
@@ -1277,8 +1317,40 @@ body.popup-open {
 		.tabs-wrap {
 			flex-shrink: 0;
 		}
+		.tabs-slider-box {
+			margin-bottom: 15px;
+		}
 	}
 	.panel-box {
+		table {
+			thead {
+				white-space: nowrap;
+			}
+		}
+		&.elm-panel-desktop, &.elm-panel {
+			.elm-panel-desktop, .elm-panel {
+				.tbl-inner-wrap {
+					margin-left: -11px;
+					margin-right: -11px;
+				}
+				.page-actions-box {
+					margin-left: -11px;
+					margin-right: -11px;
+					padding-left: 11px;
+					padding-right: 11px;
+				}
+			}
+			.tbl-inner-wrap {
+				margin-left: -14px;
+				margin-right: -14px;
+			}
+			.page-actions-box {
+				margin-left: -14px;
+				margin-right: -14px;
+				padding-left: 14px;
+				padding-right: 14px;
+			}
+		}
 		.form-panel-outer-wrap {
 			display: flex;
 			align-items: flex-end;

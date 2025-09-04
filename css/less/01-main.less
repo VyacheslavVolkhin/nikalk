@@ -445,8 +445,16 @@ table {
 	.col-small {
 		width: 50px;
 	}
+	.col-medium {
+		width: 180px;
+	}
 	.col-title {
 		min-width: 300px;;
+	}
+	&:has(.col-title~.col-title) {
+		.col-title {
+			min-width: 220px;
+		}
 	}
 	.col-select {
 		width: 62px;
@@ -1042,7 +1050,7 @@ table {
 		}
 	}
 	table.tbl-border.tbl-activities tbody:last-child tr:last-child th, table.tbl-border.tbl-activities tbody:last-child tr:last-child td {
-		border-bottom: 1px solid var(--clr-border-light);
+		//border-bottom: 1px solid var(--clr-border-light);
 		&:last-child {
 			border-bottom: none;
 		}

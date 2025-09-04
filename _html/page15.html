@@ -17,14 +17,9 @@
 					<div class="title-wrap">
 						<h1 class="h1-title section-title">Склад и товары</h1>
 					</div>
-				</div>
-				<!--/title-panel-box-->
-				
-				<!--panel-box-->
-				<div class="panel-box elm-panel">
 					<!-- tabs -->
-					<div class="panel-tabs-wrap">
-						<div class="tabs-slider-box">
+					<div class="tabs-wrap">
+						<div class="tabs-slider-box type-border">
 							<div class="slider-inner-wrap slider-tabs">
 								<div class="slider-wrap swiper">
 									<div class="slider swiper-wrapper">
@@ -66,13 +61,19 @@
 						</div>
 					</div>
 					<!-- /tabs -->
+				</div>
+				<!--/title-panel-box-->
+				
+				<!--panel-box-->
+				<div class="panel-box elm-panel">
+					
 					<!-- title -->
 					<div class="panel-title-wrap">
 						<div class="title-wrap">
-							<div class="panel-title h2-title">Партнеры</div>
+							<div class="panel-title h2-title">Заказы</div>
 						</div>
 						<div class="actions-wrap">
-							<div class="action-wrap">
+							<div class="action-wrap wrap-mobile-full">
 								<a href="" class="btn button-light button-border">
 									<div class="button-ico">
 										<img src="./img/icons/plus.svg" alt="">
@@ -80,7 +81,7 @@
 									<div class="button-title">Добавить новый заказ</div>
 								</a>
 							</div>
-							<div class="action-wrap">
+							<div class="action-wrap wrap-mobile-full">
 								<a href="" class="btn button-light button-border">
 									<div class="button-ico">
 										<img src="./img/icons/import.svg" alt="">
@@ -88,7 +89,7 @@
 									<div class="button-title">Импорт CSV/XLS</div>
 								</a>
 							</div>
-							<div class="action-wrap">
+							<div class="action-wrap wrap-mobile-full">
 								<a href="" class="btn button-light button-border">
 									<div class="button-ico">
 										<img src="./img/icons/export.svg" alt="">
@@ -96,7 +97,7 @@
 									<div class="button-title">Экспорт CSV/XLS</div>
 								</a>
 							</div>
-							<div class="action-wrap">
+							<div class="action-wrap wrap-mobile-full wrap-tablet-first">
 								<a href="" class="btn">
 									<div class="button-ico">
 										<img src="./img/icons/sync.svg" alt="">
@@ -112,114 +113,6 @@
 						<div class="panel-content-wrap">
 							<!-- actions -->
 							<div class="panel-actions-wrap">
-								<!--filter-box-->
-								<div class="filter-box popup-filter-wrap js-popup-wrap">
-									<a href="" class="btn btn-popup js-btn-popup-toggle">
-										<div class="button-ico">
-											<img src="./img/icons/filter.svg" alt="">
-										</div>
-										<div class="button-title">Фильтровать</div>
-									</a>
-									<div class="filter-content-block js-popup-block">
-										<div class="filter-title-wrap">
-											<div class="filter-title">Отфильтровать </div>
-										</div>
-										<form action="/" class="filter-content-wrap">
-											<div class="filter-form-wrap">
-												<div class="frm-row">
-													<div class="frm-field">
-														<select class="form-input" required="">
-															<option selected="" disabled="" hidden="" value="">Партнер</option><!--placeholder-->
-															<option>Пункт списка</option>
-															<option>Пункт списка</option>
-															<option>Пункт списка</option>
-															<option>Пункт списка</option>
-														</select>
-													</div>
-													<div class="frm-field elm-hidden-desktop">
-														<div class="frm-field-input">
-															<input type="text" class="form-input" placeholder="Артикул">
-														</div>
-													</div>
-													<div class="frm-field elm-hidden-desktop">
-														<div class="frm-field-input type-date">
-															<input type="text" class="form-input" placeholder="Дата создания">
-														</div>
-													</div>
-													<div class="frm-field elm-hidden-desktop">
-														<div class="frm-field-input type-date">
-															<input type="text" class="form-input" placeholder="Дата завершения">
-														</div>
-													</div>
-													<div class="frm-field elm-hidden-desktop">
-														<select class="form-input" required="">
-															<option selected="" disabled="" hidden="" value="">Зона обслуживания</option><!--placeholder-->
-															<option>Пункт списка</option>
-															<option>Пункт списка</option>
-															<option>Пункт списка</option>
-															<option>Пункт списка</option>
-														</select>
-													</div>
-													<div class="frm-field elm-hidden-desktop">
-														<div class="frm-field-input type-date">
-															<input type="text" class="form-input" placeholder="Дата последнего заказа">
-														</div>
-													</div>
-													<div class="frm-field elm-hidden-desktop">
-														<select class="form-input" required="">
-															<option selected="" disabled="" hidden="" value="">Время добавления</option><!--placeholder-->
-															<option>Пункт списка</option>
-															<option>Пункт списка</option>
-															<option>Пункт списка</option>
-															<option>Пункт списка</option>
-														</select>
-													</div>
-													<div class="frm-field elm-hidden-desktop">
-														<select class="form-input" required="">
-															<option selected="" disabled="" hidden="" value="">Партнер</option><!--placeholder-->
-															<option>Пункт списка</option>
-															<option>Пункт списка</option>
-															<option>Пункт списка</option>
-															<option>Пункт списка</option>
-														</select>
-													</div>
-													<div class="frm-field elm-hidden-desktop">
-														<select class="form-input" required="">
-															<option selected="" disabled="" hidden="" value="">Статус</option><!--placeholder-->
-															<option>Пункт списка</option>
-															<option>Пункт списка</option>
-															<option>Пункт списка</option>
-															<option>Пункт списка</option>
-														</select>
-													</div>
-												</div>
-											</div>
-											<div class="filter-submit-wrap">
-												<div class="frm-row-submit">
-													<div class="frm-field field-submit">
-														<button type="submit" class="btn">
-															<div class="button-ico">
-																<img src="./img/icons/filter.svg" alt="">
-															</div>
-															<div class="button-title">Фильтровать</div>
-														</button>
-													</div>
-													<div class="frm-field field-reset">
-														<button type="reset" class="btn button-link">
-															<div class="button-title button-title-border">Очистить фильтр</div>
-														</button>
-													</div>
-												</div>
-											</div>
-										</form>
-										<div class="filter-action-wrap">
-											<a href="" class="btn button-link js-btn-popup-close">
-												<div class="button-title button-title-border">Закрыть</div>
-											</a>
-										</div>
-									</div>
-								</div>
-								<!--/filter-box-->
 								<!--search-inner-wrap-->
 								<div class="search-inner-wrap">
 									<form action="/" class="frm-main-search">
@@ -242,7 +135,7 @@
 									<thead>
 										<tr class="">
 											<th>Заказ</th>
-											<th>Дата создания</th>
+											<th>Дата&nbsp;создания</th>
 											<th class="text-center">Партнер</th>
 											<th class="text-center">Товар</th>
 											<th>Статус</th>
