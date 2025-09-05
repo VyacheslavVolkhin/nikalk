@@ -192,6 +192,8 @@
 .frm-field-input {
 	display: block;
 	position: relative;
+	width: 100%;
+	flex-shrink: 0;
 	&:before, .frm-ico {
 		content: "";
 		display: block;
@@ -229,6 +231,14 @@
 		}
 		&:before {
 			background-image: url(../img/icons/date.svg);
+		}
+	}
+	&.type-date-period {
+		.form-input {
+			padding-right: 40px;
+		}
+		&:before {
+			background-image: url(../img/icons/arrow-select.svg);
 		}
 	}
 }

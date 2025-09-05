@@ -4181,7 +4181,8 @@ body.popup-open {
   background-repeat: no-repeat;
   background-position: right 12px center;
 }
-select.form-input {
+select.form-input,
+input.form-input-select {
   display: block;
   text-overflow: ellipsis;
   width: 100%;
@@ -4200,7 +4201,8 @@ select.form-input {
   outline: none;
   cursor: pointer;
 }
-select.form-input.form-input-clear {
+select.form-input.form-input-clear,
+input.form-input-select.form-input-clear {
   height: auto;
   border: none;
   min-height: 0;
@@ -4981,6 +4983,9 @@ select.form-input:required:invalid {
 .frm-field-input {
   display: block;
   position: relative;
+  width: 100%;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
 }
 .frm-field-input:before,
 .frm-field-input .frm-ico {
@@ -5018,6 +5023,12 @@ select.form-input:required:invalid {
 }
 .frm-field-input.type-date:before {
   background-image: url(../img/icons/date.svg);
+}
+.frm-field-input.type-date-period .form-input {
+  padding-right: 40px;
+}
+.frm-field-input.type-date-period:before {
+  background-image: url(../img/icons/arrow-select.svg);
 }
 .frm-row,
 .frm-row-submit {

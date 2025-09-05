@@ -1,6 +1,23 @@
 document.addEventListener("DOMContentLoaded", function() {
 
 
+	//datepicker
+	flatpickr(".frm-field-input.type-date input", {
+		dateFormat: "d.m.Y",
+	});
+	flatpickr(".frm-field-input.type-date-period input", {
+		mode: "range",
+		minDate: "today",
+		dateFormat: "Y-m-d",
+		disable: [
+			function(date) {
+				// disable every multiple of 8
+				//return !(date.getDate() % 8);
+			}
+		]
+	});
+
+
 	//table popups
 	document.addEventListener('click', function (e) {
 	const openBtn = e.target.closest('.td-btn-action');

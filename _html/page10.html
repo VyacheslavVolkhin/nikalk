@@ -92,22 +92,19 @@
 													</select>
 												</div>
 												<div class="frm-field">
-													<select class="form-input" required>
-														<option selected disabled hidden value="">Контрагент</option><!--placeholder-->
+													<input list="list" type="text" class="form-input form-input-select" placeholder="Контрагент">
+													<datalist id="list">
 														<option>Пункт списка</option>
 														<option>Пункт списка</option>
 														<option>Пункт списка</option>
 														<option>Пункт списка</option>
-													</select>
+														<option>Пункт списка</option>
+													</datalist>
 												</div>
 												<div class="frm-field">
-													<select class="form-input" required>
-														<option selected disabled hidden value="">Период</option><!--placeholder-->
-														<option>Пункт списка</option>
-														<option>Пункт списка</option>
-														<option>Пункт списка</option>
-														<option>Пункт списка</option>
-													</select>
+													<div class="frm-field-input type-date-period">
+														<input type="text" placeholder="Период" class="form-input">
+													</div>
 												</div>
 											</div>
 										</div>
@@ -402,7 +399,6 @@
 				
             </div>
             <!-- /page -->
-            
             <!-- build:section footer -->
             <!-- /build -->
             

@@ -12,10 +12,12 @@
     <link rel="stylesheet" href="./css/reset.css">
     <link rel="stylesheet" href="./css/fancybox.css">
     <link rel="stylesheet" href="./css/swiper-bundle.min.css">
+    <link rel="stylesheet" href="./css/flatpickr.min.css">
     <link rel="stylesheet" href="./css/style.css">
     <script src="./js/swiper-bundle.min.js" defer></script>
     <script src="./js/fancybox.umd.js" defer></script>
     <script src="./js/counter.js" defer></script>
+    <script src="./js/flatpickr.js" defer></script>
     <script src="./js/scripts.js" defer></script>
     <script src="./js/scripts-sliders.js" defer></script>
 </head>
@@ -213,22 +215,19 @@
                                                 </select>
                                             </div>
                                             <div class="frm-field">
-                                                <select class="form-input" required>
-                                                    <option selected disabled hidden value="">Контрагент</option><!--placeholder-->
+                                                <input list="list" type="text" class="form-input form-input-select" placeholder="Контрагент">
+                                                <datalist id="list">
                                                     <option>Пункт списка</option>
                                                     <option>Пункт списка</option>
                                                     <option>Пункт списка</option>
                                                     <option>Пункт списка</option>
-                                                </select>
+                                                    <option>Пункт списка</option>
+                                                </datalist>
                                             </div>
                                             <div class="frm-field">
-                                                <select class="form-input" required>
-                                                    <option selected disabled hidden value="">Период</option><!--placeholder-->
-                                                    <option>Пункт списка</option>
-                                                    <option>Пункт списка</option>
-                                                    <option>Пункт списка</option>
-                                                    <option>Пункт списка</option>
-                                                </select>
+                                                <div class="frm-field-input type-date-period">
+                                                    <input type="text" placeholder="Период" class="form-input">
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -523,7 +522,6 @@
 
         </div>
         <!-- /page -->
-
         <!--footer-->
         <div class="footer">
             <div class="inner-wrap">
