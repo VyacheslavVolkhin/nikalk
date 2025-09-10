@@ -1,14 +1,77 @@
 document.addEventListener("DOMContentLoaded", function() {
 
 
+	//select
+	const singleSelects = document.querySelectorAll('select:not([multiple])');
+	const multiSelects = document.querySelectorAll('select[multiple]');
+	if (singleSelects) {
+		singleSelects.forEach(function(select) {
+			new Choices(select, {
+				searchEnabled: true,
+				itemSelectText: '',
+				shouldSort: false
+			});
+		});
+	}
+	if (multiSelects) {
+		multiSelects.forEach(function(select) {
+			new Choices(select, {
+				searchEnabled: true,
+				removeItemButton: true, 
+				itemSelectText: '',
+				shouldSort: false
+			});
+		});
+	}
+
+
+
+
+	//tables checkboxes
+    const tables = document.querySelectorAll('.tbl-inner-wrap table');
+    
+    if (tables) {
+		tables.forEach(table => {
+			const headCheckbox = table.querySelector('thead input[type="checkbox"]');
+			const bodyCheckboxes = table.querySelectorAll('tbody input[type="checkbox"]');
+			if (headCheckbox && bodyCheckboxes.length > 0) {
+				headCheckbox.addEventListener('change', function() {
+					bodyCheckboxes.forEach(checkbox => {
+						checkbox.checked = headCheckbox.checked;
+					});
+				});
+				bodyCheckboxes.forEach(checkbox => {
+					checkbox.addEventListener('change', function() {
+						const allChecked = Array.from(bodyCheckboxes).every(cb => cb.checked);
+						const anyChecked = Array.from(bodyCheckboxes).some(cb => cb.checked);
+						
+						headCheckbox.checked = allChecked;
+						headCheckbox.indeterminate = anyChecked && !allChecked;
+					});
+				});
+			}
+		});
+	}
+
 	//datepicker
 	flatpickr(".frm-field-input.type-date input", {
-		dateFormat: "d.m.Y",
+		firstDayOfWeek: 0,
+		minDate: "today",
+		dateFormat: "Y-m-d",
+		locale: "ru",
+		disable: [
+			function(date) {
+				// disable every multiple of 8
+				//return !(date.getDate() % 8);
+			}
+		]
 	});
 	flatpickr(".frm-field-input.type-date-period input", {
+		firstDayOfWeek: 0,
 		mode: "range",
 		minDate: "today",
 		dateFormat: "Y-m-d",
+		locale: "ru",
 		disable: [
 			function(date) {
 				// disable every multiple of 8
@@ -391,3 +454,4 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 })
+
