@@ -1229,7 +1229,7 @@ html.with-fancybox body.hide-scrollbar {
   background: var(--clr-bg-light);
   padding: 20px 15px 20px 30px;
   margin: 0;
-  z-index: 100;
+  z-index: 200;
   overflow-y: auto;
   overflow-x: hidden;
   scrollbar-width: none;
@@ -1278,6 +1278,28 @@ html.with-fancybox body.hide-scrollbar {
 }
 .menu-hide .btn-menu-toggle-width:before {
   rotate: 180deg;
+}
+.wrap-login.wrap {
+  padding-left: 0;
+}
+.wrap-login .page-full {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  -ms-flex-pack: center;
+      justify-content: center;
+}
+.wrap-login .header .inner-wrap {
+  -ms-flex-pack: center;
+      justify-content: center;
+}
+.wrap-login .header .logo-inner-wrap {
+  display: block;
+}
+.wrap-login .panel-box {
+  margin: 30px auto;
+  max-width: 600px;
 }
 .header {
   z-index: 99;
@@ -1446,6 +1468,14 @@ html.with-fancybox body.hide-scrollbar {
     padding: 0 30px 0 35px;
   }
   .header .logo .logo-title {
+    display: none;
+  }
+}
+@media (max-width: 479px) {
+  .wrap-login.wrap {
+    padding-left: 0;
+  }
+  .wrap-login .header .logo .logo-title {
     display: none;
   }
 }
@@ -4845,6 +4875,13 @@ body .choices .choices__inner .choices__list.choices__list--dropdown {
 /* ----------------------------------- *\
 			forms elements styles
 \* ----------------------------------- */
+.frm-main {
+  text-align: center;
+}
+.frm-main .frm-select {
+  text-align: left;
+  display: inline-block;
+}
 .frm-field-select .btn-popup,
 .frm-field-select-input .btn-popup {
   width: 100%;
@@ -5216,6 +5253,11 @@ body .choices .choices__inner .choices__list.choices__list--dropdown {
 }
 .frm-select input:checked ~ label:after {
   opacity: 1;
+}
+.frm-select label {
+  padding-left: 30px;
+  min-height: 20px;
+  line-height: 20px;
 }
 .frm-select label:before,
 .frm-select label:after {

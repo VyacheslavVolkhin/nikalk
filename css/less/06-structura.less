@@ -105,7 +105,7 @@ html.with-fancybox body.hide-scrollbar {
 	background: var(--clr-bg-light);
 	padding: 20px 15px 20px 30px;
 	margin: 0;
-	z-index: 100;
+	z-index: 200;
 	overflow-y: auto;
 	overflow-x: hidden;
 	scrollbar-width: none;
@@ -155,6 +155,28 @@ html.with-fancybox body.hide-scrollbar {
 			rotate: 180deg;
 		}
 	}	
+}
+.wrap-login {
+	&.wrap {
+		padding-left: 0;
+	}
+	.page-full {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+	}
+	.header {
+		.inner-wrap {
+			justify-content: center;
+		}
+		.logo-inner-wrap {
+			display: block;
+		}
+	}
+	.panel-box {
+		margin: 30px auto;
+		max-width: 600px;
+	}
 }
 .header {
 	z-index: 99;
@@ -314,6 +336,20 @@ html.with-fancybox body.hide-scrollbar {
 		.logo {
 			.logo-title {
 				display: none;
+			}
+		}
+	}
+}
+@media (max-width: 479px) {
+	.wrap-login {
+		&.wrap {
+			padding-left: 0;
+		}
+		.header {
+			.logo {
+				.logo-title {
+					display: none;
+				}
 			}
 		}
 	}

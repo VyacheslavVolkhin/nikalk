@@ -1,6 +1,13 @@
 /* ----------------------------------- *\
 			forms elements styles
 \* ----------------------------------- */
+.frm-main {
+	text-align: center;
+	.frm-select {
+		text-align: left;
+		display: inline-block;
+	}
+}
 .frm-field-select, .frm-field-select-input {
 	.btn-popup {
 		width: 100%;
@@ -370,6 +377,9 @@
 		}
 	}
 	label {
+		padding-left: 30px;
+		min-height: 20px;
+		line-height: 20px;
 		&:before, &:after {
 			width: 20px;height: 20px;
 			border-radius: 1px;
