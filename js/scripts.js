@@ -2,8 +2,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 	//select
-	const singleSelects = document.querySelectorAll('select:not([multiple])');
-	const multiSelects = document.querySelectorAll('select[multiple]');
+	const singleSelects = document.querySelectorAll('.frm-field select:not([multiple])');
+	const multiSelects = document.querySelectorAll('.frm-field select[multiple]');
 	if (singleSelects) {
 		singleSelects.forEach(function(select) {
 			new Choices(select, {
@@ -342,53 +342,75 @@ document.addEventListener("DOMContentLoaded", function() {
 
 	// Popups
 	let popupCurrent;
-	let popupsList = document.querySelectorAll('.popup-outer-box')
-
+	let popupsList = document.querySelectorAll('.popup-outer-box');
+	let popupTimer = null;
 	document.querySelectorAll(".js-popup-open").forEach(function (element) {
-	element.addEventListener("click", function (e) {
-		document.querySelector(".popup-outer-box").classList.remove("active");
-		document.body.classList.add("popup-open");
-		for (i=0;i<popupsList.length;i++) {
-			popupsList[i
-				].classList.remove("active");
+		element.addEventListener("click", function (e) {
+			document.querySelector(".popup-outer-box").classList.remove("active");
+			document.body.classList.add("popup-open");
+			if (popupTimer) {
+			clearTimeout(popupTimer);
+			popupTimer = null;
+			}
+			
+			for (i = 0; i < popupsList.length; i++) {
+			popupsList[i].classList.remove("active");
 			}
 
-		popupCurrent = this.getAttribute("data-popup");
-		document
-		.querySelector(
-			`.popup-outer-box[id="${popupCurrent}"
-			]`
-		)
-		.classList.add("active");
+			popupCurrent = this.getAttribute("data-popup");
+			const popupElement = document.querySelector(`.popup-outer-box[id="${popupCurrent}"]`);
+			popupElement.classList.add("active");
 
-		e.preventDefault();
-		e.stopPropagation();
-		return false;
+			const timerValue = this.getAttribute("data-popup-timer");
+			if (timerValue) {
+			const timerMs = parseInt(timerValue);
+			if (!isNaN(timerMs) && timerMs > 0) {
+				popupTimer = setTimeout(function() {
+				document.body.classList.remove("popup-open");
+				document.body.classList.remove("popup-open-scroll");
+				popupElement.classList.remove("active");
+				popupTimer = null;
+				}, timerMs);
+			}
+			}
+
+			e.preventDefault();
+			e.stopPropagation();
+			return false;
 		});
 	});
 	document.querySelectorAll(".js-popup-close").forEach(function (element) {
-	element.addEventListener("click", function (event) {
-		document.body.classList.remove("popup-open");
-		for (i=0;i<popupsList.length;i++) {
-			popupsList[i
-				].classList.remove("active");
+		element.addEventListener("click", function (event) {
+			if (popupTimer) {
+			clearTimeout(popupTimer);
+			popupTimer = null;
 			}
-		event.preventDefault();
-		event.stopPropagation();
+			
+			document.body.classList.remove("popup-open");
+			for (i = 0; i < popupsList.length; i++) {
+			popupsList[i].classList.remove("active");
+			}
+			event.preventDefault();
+			event.stopPropagation();
 		});
 	});
-	document.querySelectorAll(".popup-outer-box").forEach(function (element) {
-	element.addEventListener("click", function (event) {
-		if (!event.target.closest(".popup-box")) {
-		document.body.classList.remove("popup-open");
-		document.body.classList.remove("popup-open-scroll");
-		document.querySelectorAll(".popup-outer-box").forEach(function (e) {
-			e.classList.remove("active");
-				});
-		return false;
-			}
-		});
-	});
+	// document.querySelectorAll(".popup-outer-box").forEach(function (element) {
+	// 	element.addEventListener("click", function (event) {
+	// 		if (!event.target.closest(".popup-box")) {
+	// 		if (popupTimer) {
+	// 			clearTimeout(popupTimer);
+	// 			popupTimer = null;
+	// 		}
+			
+	// 		document.body.classList.remove("popup-open");
+	// 		document.body.classList.remove("popup-open-scroll");
+	// 		document.querySelectorAll(".popup-outer-box").forEach(function (e) {
+	// 			e.classList.remove("active");
+	// 		});
+	// 		return false;
+	// 		}
+	// 	});
+	// });
 
 	//field-select checkboxes
 	const buttonSelects = document.querySelectorAll('.js-field-button-select');

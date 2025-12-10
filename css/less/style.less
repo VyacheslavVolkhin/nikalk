@@ -9,8 +9,69 @@
 @import '05-forms.less';
 @import 'common.less';
 @import 'fonts.less';
-/* ----------------------------------- *\
-			icons
-\* ----------------------------------- */
-//@import 'icons.less';
-//@import 'animate.less';
+
+/* popup cart added */
+.popup-outer-box.popup-cart {
+	position: fixed;
+	bottom: 20px;
+	left: 0;
+	right: 0;
+	top: auto;
+	width: auto;
+	height: auto;
+	background: none;
+	padding: 0 var(--paddingContainer);
+	display: none;
+	animation: fadein ease 0.2s;
+	&.active {
+		display: block;
+	}
+}
+.popup-cart {
+	.popup-box {
+		display: block;
+		position: relative;
+		overflow: hidden;
+		z-index: 120;
+		width: 386px;
+		max-width: 100%;
+		border-radius: 24px;
+		background: rgba(0, 0, 0, 0.08);
+		background-blend-mode: hard-light;
+		backdrop-filter: blur(40px);
+		margin: 0 auto;
+		padding: 12px;
+		.popup-title-wrap {
+			display: flex;
+			align-items: center;
+			padding-right: 40px;
+			gap: 10px;
+		}
+		.popup-title {
+			margin: 0;
+			flex: 1;
+			font-size: 20px;
+			line-height: 1.25;
+			font-weight: 400;
+			color: var(--clr-base);
+		}
+		.elm-ico {
+			width: 40px;height: 40px;
+			flex-shrink: 0;
+		}
+		.btn-action-ico.ico-close {
+			&:before, &:after {
+				filter: brightness(0) grayscale(1);;
+				background-size: 16px auto;
+			}
+		}
+		.btn-popup-close {
+			width: 32px;height: 32px;
+			position: absolute;
+			top: 50%;right: 16px;
+			margin: -16px 0 0 0;
+			z-index: 2;
+		}
+	}
+}
+/* end popup cart added */

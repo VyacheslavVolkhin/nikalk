@@ -4275,6 +4275,9 @@ body .choices[data-type*=select-one]::after {
 }
 body .choices {
   font-size: 14px;
+  width: 100%;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
 }
 body .choices[data-type="select-multiple"] .choices__inner {
   min-height: 36px;
@@ -4942,6 +4945,7 @@ body .choices .choices__inner .choices__list.choices__list--dropdown {
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
   padding-right: 10px;
+  overflow: visible;
 }
 .frm-field-select-input .btn-popup .button-head {
   width: auto;
@@ -5157,8 +5161,8 @@ body .choices .choices__inner .choices__list.choices__list--dropdown {
   position: absolute;
   top: 0;
   left: 0;
-  width: 0;
-  height: 0;
+  width: 20px;
+  height: 20px;
   opacity: 0;
   margin: 0;
   padding: 0;
@@ -7302,6 +7306,73 @@ input.form-clear-autofill::-webkit-contacts-auto-fill-button {
   font-style: normal;
   font-display: swap;
 }
-/* ----------------------------------- *\
-			icons
-\* ----------------------------------- */
+/* popup cart added */
+.popup-outer-box.popup-cart {
+  position: fixed;
+  bottom: 20px;
+  left: 0;
+  right: 0;
+  top: auto;
+  width: auto;
+  height: auto;
+  background: none;
+  padding: 0 var(--paddingContainer);
+  display: none;
+  animation: fadein ease 0.2s;
+}
+.popup-outer-box.popup-cart.active {
+  display: block;
+}
+.popup-cart .popup-box {
+  display: block;
+  position: relative;
+  overflow: hidden;
+  z-index: 120;
+  width: 386px;
+  max-width: 100%;
+  border-radius: 24px;
+  background: rgba(0, 0, 0, 0.08);
+  background-blend-mode: hard-light;
+  -webkit-backdrop-filter: blur(40px);
+          backdrop-filter: blur(40px);
+  margin: 0 auto;
+  padding: 12px;
+}
+.popup-cart .popup-box .popup-title-wrap {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+      align-items: center;
+  padding-right: 40px;
+  gap: 10px;
+}
+.popup-cart .popup-box .popup-title {
+  margin: 0;
+  -ms-flex: 1;
+      flex: 1;
+  font-size: 20px;
+  line-height: 1.25;
+  font-weight: 400;
+  color: var(--clr-base);
+}
+.popup-cart .popup-box .elm-ico {
+  width: 40px;
+  height: 40px;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+}
+.popup-cart .popup-box .btn-action-ico.ico-close:before,
+.popup-cart .popup-box .btn-action-ico.ico-close:after {
+  filter: brightness(0) grayscale(1);
+  background-size: 16px auto;
+}
+.popup-cart .popup-box .btn-popup-close {
+  width: 32px;
+  height: 32px;
+  position: absolute;
+  top: 50%;
+  right: 16px;
+  margin: -16px 0 0 0;
+  z-index: 2;
+}
+/* end popup cart added */
