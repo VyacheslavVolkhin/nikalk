@@ -1,6 +1,22 @@
 document.addEventListener("DOMContentLoaded", function() {
 
 
+	// field textarea counter with maxlength
+	document.querySelectorAll('textarea[maxlength]').forEach(function(textarea) {
+		const max = textarea.getAttribute('maxlength');
+		const counter = document.createElement('div');
+		counter.className = 'field-counter';
+		textarea.insertAdjacentElement('afterend', counter);
+		function update() {
+		const current = textarea.value.length;
+		counter.textContent = current + '/' + max + ' символов';
+		counter.closest('.frm-field-input').classList.toggle('is-full', current >= max);
+		}
+		update();
+		textarea.addEventListener('input', update);
+	});
+
+
 	//select
 	const singleSelects = document.querySelectorAll('.frm-field select:not([multiple])');
 	const multiSelects = document.querySelectorAll('.frm-field select[multiple]');
@@ -22,6 +38,29 @@ document.addEventListener("DOMContentLoaded", function() {
 				shouldSort: false
 			});
 		});
+	}
+
+
+	//field-password
+	const passwordToggle = document.querySelectorAll(".js-password-toggle");
+	for (let i = 0; i < passwordToggle.length; i++) {
+	  passwordToggle[i
+		].addEventListener("click", function (e) {
+		if (this.classList.contains("active")) {
+		  this.classList.remove("active");
+		  const input = this.closest(".frm-field-input").querySelector(
+			".form-input"
+		  );
+		  input.type = "password";
+			} else {
+		  this.classList.add("active");
+		  const input = this.closest(".frm-field-input").querySelector(
+			".form-input"
+		  );
+		  input.type = "text";
+			}
+		e.preventDefault();
+		})
 	}
 
 
@@ -56,6 +95,7 @@ document.addEventListener("DOMContentLoaded", function() {
 	//datepicker
 	flatpickr(".frm-field-input.type-date input", {
 		firstDayOfWeek: 0,
+		monthSelectorType: "dropdown",
 		minDate: "today",
 		dateFormat: "Y-m-d",
 		locale: "ru",
@@ -68,6 +108,7 @@ document.addEventListener("DOMContentLoaded", function() {
 	});
 	flatpickr(".frm-field-input.type-date-period input", {
 		firstDayOfWeek: 0,
+		monthSelectorType: "dropdown",
 		mode: "range",
 		minDate: "today",
 		dateFormat: "Y-m-d",
